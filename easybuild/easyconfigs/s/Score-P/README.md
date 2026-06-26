@@ -17,7 +17,7 @@ Score-P offers the user a maximum of convenience by supporting a number of analy
 
 -   [Score-P support in the CSCS repository](https://github.com/easybuilders/CSCS/tree/master/easybuild/easyconfigs/s/Score-P)
 
--   [Score-P support in the JSC repository]()
+-   [Score-P support in the JSC repository](https://github.com/easybuilders/JSC/tree/2026/Golden_Repo/s/Score-P)
 
 There was earlier work in the central software stack before we got EasyConfigs contributed
 by the Score-P authors.
@@ -42,7 +42,6 @@ by the Score-P authors.
 -   Conversion of the easyconfigs for 23.09 with some build dependencies moved
     to runtime dependencies as we don't want to rely on RPATH.
 
-
 ### Version 9.0 for CPE 24.03
 
 -   Some reworking needed, offered to us by JSC. Also required an update of the EasyBlock.
@@ -57,3 +56,13 @@ by the Score-P authors.
 
 -   Version bump
 
+### Version 9.4 for CPE 25.03
+
+-   Version bump in new toolchain
+
+### Version 10.0 for CPE 25.03
+
+-   Major version bump. Requires new OTF2.
+
+-   General features stay the same, slight reworking due to new file structure
+    for licenses etc.
