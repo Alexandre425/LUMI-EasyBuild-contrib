@@ -1,0 +1,33 @@
+diff -Naur gromacs/src/gromacs/fft/gpu_3dfft_heffte.cpp gromacs-v2026.3/src/gromacs/fft/gpu_3dfft_heffte.cpp
+--- gromacs/src/gromacs/fft/gpu_3dfft_heffte.cpp	2026-07-02 11:50:17.000000000 +0300
++++ gromacs-v2026.3/src/gromacs/fft/gpu_3dfft_heffte.cpp	2026-06-30 17:21:19.000000000 +0300
+@@ -438,7 +438,7 @@
+     {
+         case GMX_FFT_REAL_TO_COMPLEX:
+ #if GMX_SYCL_ACPP
+-            gmx::syclSubmitWithoutEvent(
++            gmx::syclSubmitWithCghWithoutEvent(
+                     pmeRawStream_,
+                     [&](sycl::handler& cgh)
+                     {
+@@ -453,7 +453,7 @@
+             break;
+         case GMX_FFT_COMPLEX_TO_REAL:
+ #if GMX_SYCL_ACPP
+-            gmx::syclSubmitWithoutEvent(
++            gmx::syclSubmitWithCghWithoutEvent(
+                     pmeRawStream_,
+                     [&](sycl::handler& cgh)
+                     {
+diff -Naur gromacs/src/gromacs/fft/gpu_3dfft_sycl_rocfft.cpp gromacs-v2026.3/src/gromacs/fft/gpu_3dfft_sycl_rocfft.cpp
+--- gromacs/src/gromacs/fft/gpu_3dfft_sycl_rocfft.cpp	2026-07-02 11:50:17.000000000 +0300
++++ gromacs-v2026.3/src/gromacs/fft/gpu_3dfft_sycl_rocfft.cpp	2026-06-30 17:23:07.000000000 +0300
+@@ -320,7 +320,7 @@
+         outputGrid = &impl_->realGrid_;
+     }
+     // Enqueue the 3D FFT work
+-    gmx::syclSubmitWithoutEvent(
++    gmx::syclSubmitWithCghWithoutEvent(
+             impl_->queue_,
+             [&](sycl::handler& cgh)
+             {

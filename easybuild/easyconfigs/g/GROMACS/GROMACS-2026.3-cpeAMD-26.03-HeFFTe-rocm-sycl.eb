@@ -38,6 +38,15 @@ toolchain_opts = {'opt': True, 'usempi': True, 'verbose': False, 'pic': True, 'o
 source_urls = ['https://ftp.gromacs.org/pub/gromacs/']
 sources =     [SOURCELOWER_TAR_GZ]
 
+patches = [
+    'gromacs_v2026.3_sycl_submit_wo_event.patch',
+]
+
+checksums = [
+    '6e205f8fc072f0112dc72f6349b729c6921e1ddb7231928c03281f950a86d42f',
+    'c600cff4de9a5c03f3cdafcecf227739dacb6efb1df8d5e1046b2de7da6f67a9',
+]
+
 dependencies = [
     ('cray-fftw',   EXTERNAL_MODULE),
     ('cray-python', EXTERNAL_MODULE),
