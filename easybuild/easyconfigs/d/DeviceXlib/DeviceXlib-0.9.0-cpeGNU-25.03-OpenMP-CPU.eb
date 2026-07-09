@@ -10,7 +10,7 @@ easyblock = 'ConfigureMake'
 
 name =          'DeviceXlib'
 version =       '0.9.0'
-versionsuffix = '-CPU-OpenMP'
+versionsuffix = '-OpenMP-CPU'
 
 homepage = 'https://gitlab.com/max-centre/components/devicexlib'
 

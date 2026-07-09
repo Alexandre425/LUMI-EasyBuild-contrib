@@ -10,7 +10,7 @@
 -   [DeviceXLib in the EasyBuilders repository](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/d/DeviceXlib)
 
 
-### 0.9.0-cpeGNU-25.03-CPU-OpenMP
+### 0.9.0-cpeGNU-25.03-OpenMP-CPU
 
 -   Recipe partly based on the EasyBuilders EasyConfig which was contributed by the 
     MAX Centre of Excellence.
