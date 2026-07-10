@@ -1,8 +1,6 @@
 # MUMPS instructions
 
--   [MUMPS web site](https://graal.ens-lyon.fr/MUMPS/)
-
-
+-   [MUMPS web site](https://mumps-solver.org/index.php)
 
 
 ## EasyBuild
