@@ -32,4 +32,11 @@
     properly compiled, so we cannot offer this version at the moment.
     
     Yambo 5.3.0 is also the first version using this library, so it comes as no surprise 
-    that we didn't see simimal issues in previous versions of Yambo.
+    that we didn't see similar issues in previous versions of Yambo.
+
+
+### 5.3.0-cpeGNU-25.03-SLEPc-double, CPU-only
+
+-   The EasyConfig builds on the EasyConfig for 5.2.4 in 25.03 and combines with the configuration
+    used for 5.3.0 with SLEPc in the foss toolchains in the EasyBuilders repository (as the latter
+    was co-developed by the Yambo developers and hence is likely OK).
