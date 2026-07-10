@@ -7,7 +7,18 @@
     -   [GitHub releases](https://github.com/yambo-code/yambo/releases)
     
     -   [GitHub tags for subreleases](https://github.com/yambo-code/yambo/tags)
-    
+
+
+## General notes
+
+-   Yambo likes to install missing dependencies itself and will download them automatically.
+    This does not always work. We've seen cases where the configuration that Yambo tried on 
+    LUMI did not build.
+
+    To find out what versions of dependencies Yambo prefers, go into the source distribution
+    and check `lib/archive/package.list`. Newer versions do not always work and errors can
+    also be linking errors, not just runtime errors.
+
 
 ## EasyBuild
 
@@ -32,4 +43,11 @@
     properly compiled, so we cannot offer this version at the moment.
     
     Yambo 5.3.0 is also the first version using this library, so it comes as no surprise 
-    that we didn't see simimal issues in previous versions of Yambo.
+    that we didn't see similar issues in previous versions of Yambo.
+
+
+### 5.3.0-cpeGNU-25.03-SLEPc-double, CPU-only
+
+-   The EasyConfig builds on the EasyConfig for 5.2.4 in 25.03 and combines with the configuration
+    used for 5.3.0 with SLEPc in the foss toolchains in the EasyBuilders repository (as the latter
+    was co-developed by the Yambo developers and hence is likely OK).
