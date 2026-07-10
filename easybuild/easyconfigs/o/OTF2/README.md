@@ -21,7 +21,6 @@ it will avoid copying during unification of parallel event streams.
 
 -   [OTF2 support in the JSC repository](https://github.com/easybuilders/JSC/tree/2024/Golden_Repo/o/OTF2)
 
-
 ### Version 3.0.3 for CPE 23.09
 
 -   EasyConfig prepared by Jan André Reuter of JSC based on the EasyConfigs in use at JSC.
@@ -41,3 +40,10 @@ it will avoid copying during unification of parallel event streams.
 -   Trivial port of the EasyConfig for 3.0.3 also in 24.03, but with a small change to the
     sanity checks.
 
+### Version 3.1.1 for 25.03
+
+-   Trivial port of the EasyConfig for 3.1.1 also in 24.03.
+
+### Version 3.2 for 25.03
+
+-   Trivial port of the EasyConfig for 3.1.1 also in 25.03.
