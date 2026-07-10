@@ -7,7 +7,18 @@
     -   [GitHub releases](https://github.com/yambo-code/yambo/releases)
     
     -   [GitHub tags for subreleases](https://github.com/yambo-code/yambo/tags)
-    
+
+
+## General notes
+
+-   Yambo likes to install missing dependencies itself and will download them automatically.
+    This does not always work. We've seen cases where the configuration that Yambo tried on 
+    LUMI did not build.
+
+    To find out what versions of dependencies Yambo prefers, go into the source distribution
+    and check `lib/archive/package.list`. Newer versions do not always work and errors can
+    also be linking errors, not just runtime errors.
+
 
 ## EasyBuild
 
