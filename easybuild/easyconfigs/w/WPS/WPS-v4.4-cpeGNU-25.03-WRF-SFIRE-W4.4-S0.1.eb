@@ -61,6 +61,7 @@ sources = [{
 
 patches = [
     'wps.patch',
+    'patch_fixoutputgcc14.patch',
 ]
 
 builddependencies = [
