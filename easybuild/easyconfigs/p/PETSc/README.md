@@ -42,6 +42,11 @@
 -   Builds upon the CPU version, just adding even more configuration options to use [Kokkos](../../k/Kokkos/index.md)
     and [Kokkos-kernels](../../k/Kokkos-kernels/index.md).
 
+
+### Version 3.23.5-cpeGNU-25.03-OpenMP-CPU-forYambo
+
+-   Similar to the version 3.21.1 for CPU in 24.03, but configuration checked for use with Yambo 5.3.
+
     
 ### Version 3.24.2 for CPU in CPE 25.03
 

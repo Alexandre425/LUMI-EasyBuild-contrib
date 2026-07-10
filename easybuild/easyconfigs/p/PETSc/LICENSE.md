@@ -4,6 +4,9 @@ PETSc itself is covered by a 2-clause BSD license.
 Information is available on the 
 ["License" page of the PETSc web site](https://petsc.org/release/install/license/#doc-license).
 
+In some versions, you can also find some license information after installing and loading the 
+module in `$EBROOTPETSC/share/licenses/PETSc`.
+
 Note that PETSc relies on many other libraries, some of which have much more restrictive
 licensing conditions so do not forget to check those in function of which components and options
 of PETSc you use.
