@@ -1,6 +1,5 @@
-diff -ruN uranos-gpu-orig/Makefile uranos-gpu/Makefile
---- uranos-gpu-orig/Makefile    2026-07-03 12:33:53.000000000 +0300
-+++ uranos-gpu/Makefile 2026-07-03 12:32:18.000000000 +0300
+--- Makefile.orig	1970-01-01 02:00:00.000000000 +0200
++++ Makefile	2026-07-13 14:27:56.989924869 +0300
 @@ -173,7 +173,7 @@
  LDFLAGS := $(PREPROC) $(OPENMP) $(TIME) $(MPIDEX) $(DEBUG) $(OPT)
  
@@ -11,12 +10,11 @@ diff -ruN uranos-gpu-orig/Makefile uranos-gpu/Makefile
  #Object files
  OBJECTS = $(addprefix $(OBJDIR), mpi_module.o \
 @@ -325,7 +325,7 @@
- $(OBJDIR)bc_module.o                           : $(SRCDIR)bc_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o fluid_functions_module.o inflow_module.o real_to_integer_module.o mpi_comm_module.o)
- $(OBJDIR)rhs_module.o                          : $(SRCDIR)rhs_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o advection_module.o viscous_module.o integration_module.o sgs_module.o)
- $(OBJDIR)advection_module.o                    : $(SRCDIR)advection_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o flux_module.o inflow_module.o nvtx.o roctx.o nscbc_boundary_conditions.o)
--$(OBJDIR)shock_detection_module.o              : $(SRCDIR)shock_detection_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o fluid_functions_module.o mpi_comm_module.o)
+ $(OBJDIR)bc_module.o			 	: $(SRCDIR)bc_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o fluid_functions_module.o inflow_module.o real_to_integer_module.o mpi_comm_module.o)
+ $(OBJDIR)rhs_module.o			 	: $(SRCDIR)rhs_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o advection_module.o viscous_module.o integration_module.o sgs_module.o)
+ $(OBJDIR)advection_module.o			: $(SRCDIR)advection_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o flux_module.o inflow_module.o nvtx.o roctx.o nscbc_boundary_conditions.o)
+-$(OBJDIR)shock_detection_module.o		: $(SRCDIR)shock_detection_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o fluid_functions_module.o mpi_comm_module.o)
 +$(OBJDIR)shock_detection_module.o              : $(SRCDIR)shock_detection_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o fluid_functions_module.o mpi_comm_module.o profiling_module.o)
- $(OBJDIR)viscous_module.o                      : $(SRCDIR)viscous_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o nvtx.o roctx.o)
- $(OBJDIR)flux_module.o                         : $(SRCDIR)flux_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o)
- $(OBJDIR)inflow_module.o                       : $(SRCDIR)inflow_module.f90 $(addprefix $(OBJDIR), storage_module.o fluid_functions_module.o math_tools_module.o df_module.o)
-
+ $(OBJDIR)viscous_module.o			: $(SRCDIR)viscous_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o nvtx.o roctx.o)
+ $(OBJDIR)flux_module.o				: $(SRCDIR)flux_module.f90 $(addprefix $(OBJDIR), parameters_module.o storage_module.o mpi_module.o)
+ $(OBJDIR)inflow_module.o			: $(SRCDIR)inflow_module.f90 $(addprefix $(OBJDIR), storage_module.o fluid_functions_module.o math_tools_module.o df_module.o)
