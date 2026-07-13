@@ -1,0 +1,39 @@
+# Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
+
+name = 'URANOS'
+version = '9c69c94'
+homepage = 'https://github.com/uranos-gpu/uranos-gpu'
+description = """URANOS is a GPU-accelerated Navier-Stokes solver for compressible flows with direct
+ relevance to aerospace propulsion systems and aerothermodynamics."""
+
+toolchain = {'name': 'cpeGNU', 'version': '25.03'}
+toolchainopts = {'usempi': True}
+
+moduleclass = 'geo'
+
+sources = [{
+  'filename': 'URANOS-git',
+  'git_config': {
+    'url': 'https://github.com/uranos-gpu/',
+    'repo_name': 'uranos-gpu',
+    'commit': '9c69c943c437ec8f11e0f70bd4c4deb64c17cd7a',
+    'keep_git_dir': False,
+  },
+}]
+
+patches = ["URANOS-GNU.patch"]
+
+maxparallel = 1
+buildopts = 'comp=gnu mode=cpu'
+easyblock= 'ConfigureMake'
+install_cmd='cp -r * %(installdir)s'
+skipsteps=['configure']
+sanity_check_paths= {
+  'files': [ "Uranos.exe" ],
+  'dirs': [],
+}
+
+modextrapaths = {
+  'PATH': '%(installdir)s',
+}
+
