@@ -3,7 +3,7 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
 # #
 name = 'iPIC3D'
-version = '755afb5'
+version = '4c809b6'
 
 easyblock= 'CMakeMake'
 
@@ -25,7 +25,7 @@ sources = [
         'git_config': {
             'url': 'https://github.com/Pranab-JD',
             'repo_name': 'iPIC3D-CPU-SPACE-CoE',
-            'commit': '755afb59ebad9b18dfbe9769c48588d3e0451d2d',
+            'commit': '4c809b6ae748adcebc8fd12084e6f8cfbf575522',
             'keep_git_dir': False,
         }
     },
