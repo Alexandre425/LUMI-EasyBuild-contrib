@@ -2,7 +2,6 @@
 
 name = 'URANOS'
 version = '9c69c94'
-versionsuffix = "-rocm"
 
 homepage = 'https://github.com/uranos-gpu/uranos-gpu'
 description = """URANOS is a GPU-accelerated Navier-Stokes solver for compressible flows with direct
@@ -24,13 +23,13 @@ sources = [{
 patches = ['URANOS-Cray.patch']
 
 
-dependencies = [
-    ('rocm', EXTERNAL_MODULE),
-    ('hipfort', '0.4-0'),
-]
+#dependencies = [
+#    ('rocm', EXTERNAL_MODULE),
+#    ('hipfort', '0.4-0'),
+#]
 
 maxparallel = 1
-buildopts = 'comp=cray mode=gpu'
+buildopts = 'comp=cray mode=cpu'
 easyblock= 'ConfigureMake'
 install_cmd='cp -r * %(installdir)s'
 skipsteps=['configure']
