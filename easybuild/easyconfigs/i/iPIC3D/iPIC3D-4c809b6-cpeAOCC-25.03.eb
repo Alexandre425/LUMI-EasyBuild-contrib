@@ -1,0 +1,61 @@
+# #
+# Author:    Bibek Chapagain <bibek.chapagain@bsc.es>
+# Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
+# #
+name = 'iPIC3D'
+version = '4c809b6'
+
+easyblock= 'CMakeMake'
+
+homepage = 'https://kth-hpc.github.io/iPIC3D/'
+description = """iPIC3D is a three-dimensional parallel PIC code. On multiprocessor architectures, 
+the domain decomposition technique is used to divide the computational workload among processors. 
+For implicit PIC where the cost of particle moving and of field solving are of the same order 
+(unlike explicit PIC where most of the cost resides with the particles), it is crucial that both field 
+solving and particle moving be parallelized efficiently. An important aspect of efficiency is the need 
+to retain the particles and cells belonging to a subdomain on the same processor.""" 
+
+toolchain = {'name': 'cpeAOCC', 'version': '25.03'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+# CPU-specific version, fork maintained by the SPACE CoE.
+sources = [
+    {
+        'filename': 'iPIC3D-CPU-SPACE-CoE',
+        'git_config': {
+            'url': 'https://github.com/Pranab-JD',
+            'repo_name': 'iPIC3D-CPU-SPACE-CoE',
+            'commit': '4c809b6ae748adcebc8fd12084e6f8cfbf575522',
+            'keep_git_dir': False,
+        }
+    },
+]
+
+checksums = [None]
+
+dependencies = [
+    ('cray-hdf5', EXTERNAL_MODULE),
+
+]
+
+# Matches: mkdir build && cd build
+separate_build_dir = True
+
+# Skip non-existent "make install"
+skipsteps = ['install']
+
+postinstallcmds = [
+    "mkdir -p %(installdir)s/bin",
+    "mkdir -p %(installdir)s/lib",
+
+    "cp $(find %(builddir)s -type f -name iPIC3D | head -n 1) %(installdir)s/bin/",
+    "find %(builddir)s -name '*.so' -exec cp {} %(installdir)s/lib/ \\;",
+]
+
+sanity_check_paths = {
+    'files': ['bin/iPIC3D'],
+    'dirs': ['bin'],
+}
+
+moduleclass = 'phys'
+
