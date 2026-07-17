@@ -3,7 +3,7 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
 # #
 name = 'iPIC3D'
-version = '4c809b6'
+version = '20260211'
 
 easyblock= 'CMakeMake'
 
