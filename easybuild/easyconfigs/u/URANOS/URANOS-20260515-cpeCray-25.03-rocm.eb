@@ -1,7 +1,7 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
 
 name = 'URANOS'
-version = '9c69c94'
+version = '20260515'
 versionsuffix = "-rocm"
 
 homepage = 'https://github.com/uranos-gpu/uranos-gpu'
