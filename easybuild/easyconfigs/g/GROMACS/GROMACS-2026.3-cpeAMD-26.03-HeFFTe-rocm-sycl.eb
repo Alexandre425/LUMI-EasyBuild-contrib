@@ -3,6 +3,7 @@
 easyblock = 'CMakeMake'
 
 local_HeFFTe_version =       '2.4.1'
+local_AdaptiveCpp_version =  '25.10.0'
 
 name =           'GROMACS'
 version =        '2026.3'
@@ -43,7 +44,7 @@ patches = [
 ]
 
 checksums = [
-    '6e205f8fc072f0112dc72f6349b729c6921e1ddb7231928c03281f950a86d42f',
+    '1094b7bbc6a3960223827114626657110b40096cdf9598a727935fc84ebf8aa0',
     'c600cff4de9a5c03f3cdafcecf227739dacb6efb1df8d5e1046b2de7da6f67a9',
 ]
 
