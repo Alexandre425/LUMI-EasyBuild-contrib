@@ -1,0 +1,13 @@
+easyconfigs:
+#
+# # git-lfs
+#
+  - git-lfs.3.7.1.eb
+#
+# HyperQueue
+#
+  - HyperQueue-0.26.2-bindist-noPython.eb
+#
+# lustre-includes (for mpi-fileutils)
+#
+  - lustre-includes-2.15.5.eb

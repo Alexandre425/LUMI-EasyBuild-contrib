@@ -37,3 +37,18 @@
 -   Trivial port of the EasyConfig for 1.0.0 in CPE 23.09.
 
 -   May 2025: Added license information to the installation.
+
+-   26.03 version: 
+   
+    -   Removed cray-python as a dependency as we didn't build the Python
+        interface anyway (which might need even more Python dependencies).
+
+    -   Corrected an issue with an invalid escape sequence that Python 3.12 starts
+        hard warning about.
+
+    -   Needed to do some edits for the new cpeCray version as the CMake setup only
+        supported lowercase module names. We did so with `sed` rather than a patch file
+        as that will likely more easily port to new versions.
+
+    -   We still cannot build static and shared libraries in a single module. It seems
+        like the second build erases the first rather than installing on top of it.

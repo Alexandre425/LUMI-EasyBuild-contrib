@@ -3,7 +3,7 @@
 local_HyperQueue_version =   '0.26.2'        # https://github.com/It4innovations/hyperqueue/releases
 local_lustre_includes_version = '2.15.5'
 
-local_ADIOS2_version =       '2.11.0'        # https://github.com/ornladios/ADIOS2/releases
+local_ADIOS2_version =       '2.12.1'        # https://github.com/ornladios/ADIOS2/releases
 local_ANTLR_NCO_version =    '2.7.7'         # Looks like NCO requires an antique version.
 local_aria2_version =        '1.37.0'        # https://github.com/aria2/aria2/releases
 
@@ -41,7 +41,7 @@ local_libdap_version =       '3.21.1'        # https://www.opendap.org/pub/sourc
 local_libexif_version =      '0.6.25'        # https://github.com/libexif/libexif/releases
 local_libgeotiff_version =   '1.7.4'         # https://github.com/OSGeo/libgeotiff/releases
 local_libnsl_version =       '2.0.1'         # https://github.com/thkukuk/libnsl/releases
-local_libsodium_version =    '1.0.21'        # https://download.libsodium.org/libsodium/releases/
+local_libsodium_version =    '1.0.22'        # https://download.libsodium.org/libsodium/releases/
 local_libspatialindex_version = '2.1.0'      # https://github.com/libspatialindex/libspatialindex/releases
 local_libvori_version =      '220621'        # https://brehm-research.de/libvori.php
 local_libxc6_version =       '6.2.2'         # https://gitlab.com/libxc/libxc/-/releases
@@ -76,7 +76,7 @@ local_VCFtools_version =     '0.1.17'        # https://github.com/vcftools/vcfto
 
 local_Xerces_version =       '3.3.0'         # https://xerces.apache.org/xerces-c/releases.html
 
-local_yaml_cpp_version =     '0.8.0'         # https://github.com/jbeder/yaml-cpp/releases
+local_yaml_cpp_version =     '0.9.0'         # https://github.com/jbeder/yaml-cpp/releases
 
 local_ZeroMQ_version =       '4.3.5'         # https://github.com/zeromq/libzmq/releases/
 local_Zip_version =          '3.0'           # https://infozip.sourceforge.net/Zip.html
