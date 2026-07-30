@@ -92,7 +92,7 @@ Cflags: -I\\${includedir}" > %(installdir)s/lib/pkgconfig/%(name)s.pc""",
 
 sanity_check_paths = {
     'files': [f'lib64/libzfp.{SHLIB_EXT}', f'lib64/libcfp.{SHLIB_EXT}', 
-              'include/zfp.h', 'include/zfp.mod',
+              'include/zfp.h', 'include/ZFP.mod',
               'share/licenses/%(name)s/LICENSE'],
     'dirs':  ['lib/pkgconfig'],
 }
