@@ -1,0 +1,11 @@
+--- ambertools26_clean/AmberTools/src/cpptraj/src/Cpptraj.cpp	2026-06-09 18:11:00.000000000 +0300
++++ ambertools26_src/AmberTools/src/cpptraj/src/Cpptraj.cpp	2026-06-09 16:25:14.000000000 +0300
+@@ -18,7 +18,7 @@
+ #include "StringRoutines.h" // TimeString
+ #include "TrajectoryFile.h" // for autodetect
+ #if defined(CUDA)
+-#  if defined(__HIP_PLATFORM_HCC__)
++#  if (defined(__HIP_PLATFORM_HCC__) || defined(__HIP_PLATFORM_AMD__))
+ #    include <hip/hip_runtime.h>
+ #    include <hip/hip_runtime_api.h>
+ #    include "HipDefinitions.h"

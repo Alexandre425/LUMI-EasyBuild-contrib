@@ -1,0 +1,10 @@
+--- ambertools26_clean/AmberTools/src/cpptraj/src/cuda_kernels/GistCudaCalc.cuh	2026-06-09 18:10:37.000000000 +0300
++++ ambertools26_src/AmberTools/src/cpptraj/src/cuda_kernels/GistCudaCalc.cuh	2026-06-09 16:24:20.000000000 +0300
+@@ -1,6 +1,6 @@
+ #ifndef GIST_CUDA_CALC_CUH
+ #define GIST_CUDA_CALC_CUH
+-#if defined(__HIP_PLATFORM_HCC__)
++#if (defined(__HIP_PLATFORM_HCC__) || defined(__HIP_PLATFORM_AMD__))
+ #include <hip/hip_runtime.h>
+ #endif
+ 

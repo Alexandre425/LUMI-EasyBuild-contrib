@@ -1,0 +1,41 @@
+--- src/pmemd/src/cuda/CudaWrapper.h.orig	2026-06-30 11:03:40.000000000 +0300
++++ src/pmemd/src/cuda/CudaWrapper.h	2026-06-30 11:47:35.000000000 +0300
+@@ -46,7 +46,37 @@
+ 
+ #pragma once
+ 
+-#include <cuda_runtime.h>
++#include <hip/hip_runtime.h>
++// CUDA -> HIP names for the embedded PBA sources (pba3D*).  The rest of pmemd
++// gets these from Amber's global HIP definitions; this include chain does not.
++#ifndef AMBER_PBA_CUDA2HIP
++#define AMBER_PBA_CUDA2HIP
++#define cudaError                hipError_t
++#define cudaError_t              hipError_t
++#define cudaSuccess              hipSuccess
++#define cudaGetLastError         hipGetLastError
++#define cudaGetErrorString       hipGetErrorString
++#define cudaDeviceSynchronize    hipDeviceSynchronize
++#define cudaThreadSynchronize    hipDeviceSynchronize
++#define cudaDeviceProp           hipDeviceProp_t
++#define cudaGetDeviceProperties  hipGetDeviceProperties
++#define cudaGetDeviceCount       hipGetDeviceCount
++#define cudaSetDevice            hipSetDevice
++#define cudaMalloc               hipMalloc
++#define cudaFree                 hipFree
++#define cudaMemGetInfo           hipMemGetInfo
++#define cudaMemcpy               hipMemcpy
++#define cudaMemcpyToSymbol       hipMemcpyToSymbol
++#define cudaMemset               hipMemset
++#define cudaMemcpyHostToDevice   hipMemcpyHostToDevice
++#define cudaMemcpyDeviceToHost   hipMemcpyDeviceToHost
++#define cudaMemcpyDeviceToDevice hipMemcpyDeviceToDevice
++#define cudaFuncSetCacheConfig(func, config) hipFuncSetCacheConfig((const void*)(func), (config))
++#define cudaFuncCachePreferNone   hipFuncCachePreferNone
++#define cudaFuncCachePreferShared hipFuncCachePreferShared
++#define cudaFuncCachePreferL1     hipFuncCachePreferL1
++#define cudaFuncCachePreferEqual  hipFuncCachePreferEqual
++#endif
+ #include <cstdio>
+ #include <cstdlib>
+ 

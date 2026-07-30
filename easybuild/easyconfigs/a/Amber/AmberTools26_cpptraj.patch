@@ -1,0 +1,97 @@
+--- ambertools26_clean/AmberTools/src/cpptraj/configure	2026-06-09 18:12:03.000000000 +0300
++++ ambertools26_src/AmberTools/src/cpptraj/configure	2026-06-09 16:25:18.000000000 +0300
+@@ -513,7 +513,7 @@
+       ;;
+   esac
+ 
+-  # Build specified MPI 
++  # Build specified MPI
+   PREFIX=$CPPTRAJHOME CC=$CC CFLAGS=$CFLAGS FC=$FC FFLAGS="$FFLAGS $mpi_fflags" LIBNAME=$mpi_libname \
+               SRCDIR=$mpi_srcdir SRCTAR=$mpi_srctar URL=$mpi_url ./get_library.sh --rebuild $mpi_opts
+   if [ $? -ne 0 ] ; then
+@@ -768,7 +768,7 @@
+ 	else
+           hdf5zlib=''
+ 	fi
+-        # See if user would like to get HDF5 
++        # See if user would like to get HDF5
+         PREFIX=$CPPTRAJHOME CC=$CC CFLAGS=$CFLAGS LIBNAME='hdf5' \
+             SRCDIR=$HDF5_SRCDIR SRCTAR=$HDF5_SRCTAR URL=$HDF5_URL ./get_library.sh $REBUILDOPT $HDF5_OPTS $hdf5zlib
+         if [ $? -ne 0 ] ; then
+@@ -1791,10 +1791,10 @@
+       foptflags='-O3'
+       FLINK='-lgfortran'
+       picflag='-fPIC'
+-      C11FLAG='-std=gnu++11'
++      C11FLAG='-std=gnu++17'
+       staticlink='-lquadmath'
+       # Check compiler version
+-      CheckCompilerVersion $CC 
++      CheckCompilerVersion $CC
+       # Set version-specific flags
+       if [ $cc_version_major -ge 14 ] ; then
+         # Needed for readline with gcc >= 14
+@@ -1812,7 +1812,7 @@
+       foptflags='-O3'
+       FLINK='-lgfortran'
+       picflag='-fPIC'
+-      C11FLAG='-std=c++11'
++      C11FLAG='-std=c++17'
+       # Check the GNU compiler version
+       CheckCompilerVersion gcc
+       # Set version-specific flags
+@@ -1829,7 +1829,7 @@
+       optflags=''
+       ompflag='-fopenmp'
+       picflag='-fpic'
+-      C11FLAG='-std=c++11'
++      C11FLAG='-std=c++17'
+       # May be several fortran compiler options
+       if [ -z "$FC" ]; then
+         if [ ! -z "`which ifx`" ] ; then
+@@ -1879,7 +1879,7 @@
+       fwarnflag='-warn all'
+       FLINK='-lifport -lifcore'
+       picflag="-fpic"
+-      C11FLAG='-std=c++11'
++      C11FLAG='-std=c++17'
+       # Check for 'error: identifier "_LIB_VERSION_TYPE" is undefined'
+       cat > testp.cpp <<EOF
+ #include <math.h>
+@@ -1910,7 +1910,7 @@
+       freefmtflag='-Mfree'
+       FLINK='-pgf90libs'
+       picflag='-fpic'
+-      C11FLAG='-std=c++11'
++      C11FLAG='-std=c++17'
+       ;;
+     "cray" )
+       if [ -z "$CC" ]; then CC=cc; fi
+@@ -1927,7 +1927,8 @@
+       foptflags=''
+       FLINK=''
+       picflag='-fpic'
+-      C11FLAG='-hstd=c++11'
++      C11FLAG='-select
++hstd=c++11'
+       if [ $USE_OPENMP -eq 0 ] ; then
+         commonflags='-h noomp'
+       fi
+@@ -2742,7 +2743,7 @@
+       fi
+     done
+     cmake_options="$cmake_options -DCMAKE_PREFIX_PATH=$cmppstring"
+-  fi  
++  fi
+   echo "  Cmake options: $WORKDIR $cmake_options"
+   # Run cmake
+   $CMAKE $WORKDIR $cmake_options
+@@ -2937,7 +2938,7 @@
+ # Basic checks and directives
+ BasicChecks
+ 
+-# Create directories if necessary 
++# Create directories if necessary
+ if [ ! -e "$CPPTRAJBIN" ] ; then
+   mkdir "$CPPTRAJBIN"
+ fi

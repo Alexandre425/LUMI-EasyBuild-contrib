@@ -1,0 +1,24 @@
+--- src/pmemd/src/cuda/kCalculateSA.cu.orig	2026-06-30 13:17:58.000000000 +0300
++++ src/pmemd/src/cuda/kCalculateSA.cu	2026-06-30 13:20:00.000000000 +0300
+@@ -89,14 +89,14 @@
+     thrust::device_vector<int> temp8(e3D1.begin(), e3D1.end());
+     thrust::device_vector<int> temp7(e2D1.begin(), e2D1.end());
+     thrust::device_vector<int> temp6(e1D1.begin(), e1D1.end());
+-    thrust::gather(thrust::cuda::par.on(stream1),dtper2.begin(), dtper2.end(), temp5.begin(), f5D1.begin());
+-    thrust::gather(thrust::cuda::par.on(stream2),dtper2.begin(), dtper2.end(), temp4.begin(), f4D1.begin());
+-    thrust::gather(thrust::cuda::par.on(stream3),dtper2.begin(), dtper2.end(), temp3.begin(), f3D1.begin());
+-    thrust::gather(thrust::cuda::par.on(stream4),dtper2.begin(), dtper2.end(), temp2.begin(), f2D1.begin());
+-    thrust::gather(thrust::cuda::par.on(stream2),dtper2.begin(), dtper2.end(), temp1.begin(), f1D1.begin());
++    thrust::gather(thrust::hip::par.on(stream1),dtper2.begin(), dtper2.end(), temp5.begin(), f5D1.begin());
++    thrust::gather(thrust::hip::par.on(stream2),dtper2.begin(), dtper2.end(), temp4.begin(), f4D1.begin());
++    thrust::gather(thrust::hip::par.on(stream3),dtper2.begin(), dtper2.end(), temp3.begin(), f3D1.begin());
++    thrust::gather(thrust::hip::par.on(stream4),dtper2.begin(), dtper2.end(), temp2.begin(), f2D1.begin());
++    thrust::gather(thrust::hip::par.on(stream2),dtper2.begin(), dtper2.end(), temp1.begin(), f1D1.begin());
+ 
+-    thrust::gather(thrust::cuda::par.on(stream3),deper.begin(), deper.end(), temp8.begin(), e3D1.begin());
+-    thrust::gather(thrust::cuda::par.on(stream4),deper.begin(), deper.end(), temp7.begin(), e2D1.begin());
++    thrust::gather(thrust::hip::par.on(stream3),deper.begin(), deper.end(), temp8.begin(), e3D1.begin());
++    thrust::gather(thrust::hip::par.on(stream4),deper.begin(), deper.end(), temp7.begin(), e2D1.begin());
+     thrust::gather(deper.begin(), deper.end(), temp6.begin(), e1D1.begin());
+ 
+     int*f1D_pt = thrust::raw_pointer_cast(f1D1.data());

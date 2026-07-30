@@ -1,0 +1,11 @@
+--- ambertools26_clean/AmberTools/src/cpptraj/src/cuda_kernels/kernel_wrappers.cu	2026-06-09 18:10:37.000000000 +0300
++++ ambertools26_src/AmberTools/src/cpptraj/src/cuda_kernels/kernel_wrappers.cu	2026-06-09 16:24:20.000000000 +0300
+@@ -2,7 +2,7 @@
+ #ifdef DEBUG_CUDA
+ #include <cstdio>
+ #endif
+-#if defined(__HIP_PLATFORM_HCC__)
++#if (defined(__HIP_PLATFORM_HCC__) || defined(__HIP_PLATFORM_AMD__))
+ #include <hip/hip_runtime.h>
+ #include "../HipDefinitions.h"
+ #endif

@@ -1,0 +1,19 @@
+--- ambertools26_clean/AmberTools/src/cpptraj/CMakeLists.txt	2026-06-09 18:10:25.000000000 +0300
++++ ambertools26_src/AmberTools/src/cpptraj/CMakeLists.txt	2026-06-09 16:24:10.000000000 +0300
+@@ -94,13 +94,13 @@
+   if (SHARED)
+     # For aarch64, -fPIC (uppercase) is required.
+     if (CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+-      set(CPPTRAJ_NVCC_PIC_FLAG "--compiler-options -fPIC")
++      set(CPPTRAJ_NVCC_PIC_FLAG "-fPIC")
+       message(STATUS "System is aarch64, forcing -fPIC for CUDA.")
+     else()
+       if(${COMPILER} STREQUAL GNU OR ${COMPILER} STREQUAL CLANG)
+-        set(CPPTRAJ_NVCC_PIC_FLAG "--compiler-options -fpic")
++        set(CPPTRAJ_NVCC_PIC_FLAG "-fpic")
+       else()
+-        set(CPPTRAJ_NVCC_PIC_FLAG "--compiler-options -fPIC")
++        set(CPPTRAJ_NVCC_PIC_FLAG "-fPIC")
+       endif()
+     endif()
+ 
