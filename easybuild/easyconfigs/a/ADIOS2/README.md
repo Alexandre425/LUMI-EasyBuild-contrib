@@ -51,3 +51,9 @@
 -   Mostly a trivial port of the 2.10.2 EasyConfig for 25.03, but changed the name of
     the download to a more meaningful name rather than just v2.11.0.tar.gz.
 
+
+### Version 2.12.1 for CPE 26.03
+
+-   Version bump of the 2.11.0 EasyConfig for 25.09.
+
+-   Added a cpeCray version.
