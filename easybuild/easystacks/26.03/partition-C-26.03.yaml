@@ -6,6 +6,10 @@ easyconfigs:
   - SZ-2.1.12.5-cpeGNU-26.03-hdf5-parallel.eb
   - SZ-2.1.12.5-cpeCray-26.03-hdf5.eb
   - SZ-2.1.12.5-cpeCray-26.03-hdf5-parallel.eb
+  - SZ3-3.3.2-cpeGNU-26.03-hdf5.eb
+  - SZ3-3.3.2-cpeGNU-26.03-hdf5-parallel.eb
+  - Blosc2-2.23.1-cpeGNU-26.03.eb
+  - Blosc2-2.23.1-cpeCray-26.03.eb
   - zfp-1.0.1-cpeGNU-26.03.eb
   - zfp-1.0.1-cpeCray-26.03.eb
   - OpenPGM-5.2.122-cpeGNU-26.03.eb
@@ -18,3 +22,10 @@ easyconfigs:
   - yaml-cpp-0.9.0-cpeCray-26.03.eb
   - ADIOS2-2.11.0-cpeGNU-26.03-noMPI-hdf5.eb
   - ADIOS2-2.11.0-cpeGNU-26.03-MPI-hdf5-parallel.eb
+#
+# Blosc2 3.x, originally for ADIOS2 until we found out ADIOS2 needs version 2.x
+#
+  - zfp-1.0.1-cpeGNU-26.03.eb
+  - zfp-1.0.1-cpeCray-26.03.eb
+  - Blosc2-3.2.3-cpeGNU-26.03.eb
+  - Blosc2-3.2.3-cpeCray-26.03.eb

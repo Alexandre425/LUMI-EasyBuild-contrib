@@ -54,6 +54,17 @@
 
 ### Version 2.12.1 for CPE 26.03
 
--   Version bump of the 2.11.0 EasyConfig for 25.09.
+-   Started as a version bump of the 2.11.0 EasyConfig for 25.09, but went on with
+    a clean-up and adding new options:
 
 -   Added a cpeCray version.
+
+-   This version of ADIOS does not pick up the regular Blosc, but needs Blosc2 2.x. The 3.x
+    versions did not work.
+
+-   Also added cURL as a dependency as it picked up the system one.
+  
+-   Added SQLite as it was searching for it.
+
+-   Added SZ3 support to the cpeGNU versions. For the cpeCray versions, we first need to find
+    a solution for compile issues with the CCE compilers.

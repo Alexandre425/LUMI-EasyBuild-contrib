@@ -9,8 +9,12 @@ local_bzip2_version =        '1.0.8'         # http://www.bzip.org/downloads.htm
 local_Szip_version =         '2.1.1'         # https://support.hdfgroup.org/ftp/lib-external/szip/
 local_libpng_version =       '1.6.58'        # http://www.libpng.org/pub/png/libpng.html (Not yet in EB 2025a when checking)
 local_nlohmannjson_version = '3.12.0'        # https://github.com/nlohmann/json/releases
+local_cURL_version =         '8.21.0'        # https://curl.haxx.se/download/ - Newer than 2026.1?
+local_SQLite_version =       '3.53.3'        # https://www.sqlite.org/
 
+local_Blosc2_2_version =     '2.23.1'        # https://github.com/Blosc/c-blosc2/releases
 local_SZ_version =           '2.1.12.5'      # https://github.com/szcompressor/SZ/releases
+local_SZ3_version =          '3.3.2'         # https://github.com/szcompressor/SZ3/releases
 local_zfp_version =          '1.0.1'         # https://github.com/LLNL/zfp/releases
 local_ZeroMQ_version =       '4.3.5'         # https://github.com/zeromq/libzmq/releases/
 local_yaml_cpp_version =     '0.9.0'         # https://github.com/jbeder/yaml-cpp/releases
@@ -78,8 +82,12 @@ deps = [
     ('Szip',               local_Szip_version),
     ('libpng',             local_libpng_version),
     ('nlohmann-json',      local_nlohmannjson_version),
+    ('cURL',               local_cURL_version),
+    ('SQLite',             local_SQLite_version),
     # Contributed
+    ('Blosc2',             local_Blosc2_2_version),
     ('SZ',                 local_SZ_version,           '-hdf5-parallel'),
+    ('SZ3',                local_SZ3_version,          '-hdf5-parallel'),
     ('zfp',                local_zfp_version),
     ('ZeroMQ',             local_ZeroMQ_version),
     ('yaml-cpp',           local_yaml_cpp_version),
@@ -102,13 +110,21 @@ configure_opts = ' '.join([
     '-DADIOS2_USE_BZip2=ON',
     '-DADIOS2_USE_PNG=ON',
     '-DADIOS2_USE_SZ=ON',
+    '-DADIOS2_USE_SZ3=ON',
     '-DADIOS2_USE_ZFP=ON',
+    '-DADIOS2_USE_Blosc2=ON',
     
     # HDF5
     '-DADIOS2_USE_HDF5=ON',
     
     # ZeroMQ
     '-DADIOS2_USE_ZeroMQ=ON',
+    
+    # cURL - Will pick up one with the default options anyway
+    '-DADIOS2_USE_CURL=ON'
+
+    # Campaign - requires SQLite and zlib
+    '-DADIOS2_USE_Campaign=ON'
     
     # Python
     '-DADIOS2_USE_Python=ON',
@@ -148,7 +164,7 @@ post_install_cmds = [
     """echo -e "Name: adios2
 Description: ADIOS2 I/O library
 Version: %(version)s
-Requires: bzip2, zfp, sz, libpng
+Requires: bzip2, zfp, sz, libpng, blosc2
 Libs: $(%(installdir)s/bin/adios2-config --c-libs)
 Cflags: $(%(installdir)s/bin/adios2-config --c-flags)" > %(installdir)s/lib/pkgconfig/adios2.pc""",
     """echo -e "Name: adios2_cxx
