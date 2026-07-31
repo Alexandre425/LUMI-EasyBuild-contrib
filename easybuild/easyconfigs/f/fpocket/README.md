@@ -2,9 +2,8 @@
 
 LUST cannot guarantee the proper working of this code. Compiling produces lots
 of warnings, and we even had to turn off some error messages. This is sloppy 
-code and it is not up to LUST to debug the code. Also, when writing this, the
-last update was on 9 September 2024, so the code may very well be 
-abandonware. Use at your own risk but don't expect the LUST to fix issues.
+code and it is not up to LUST to debug the code. The code also sees very
+little development besides one recent bugfix so is mostly abandonware.
 
 -   [fpocket on GitHub](https://github.com/Discngine/fpocket)
     
@@ -41,3 +40,10 @@ Hence some serious patching is needed.
 
 -   Somehow we needed to add additional compiler flags for 25.03 to turn off some
     errors. This required an improved patch.
+
+
+### Version 4.2.3 for 26.03
+
+-   A trivial port of the 4.2.2 EasyConfig for 25.03, but switched to EB6-compatible
+    parameters.
+
