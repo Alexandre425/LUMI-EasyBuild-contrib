@@ -34,3 +34,8 @@
 ### Version 3.11.2 in 25.03
 
 -   A trivial version bump of the EasyConfig for 3.10.2 in 24.03.
+
+
+### Version 3.12.2 in 26.03
+
+-   A trivial version bump of the EasyConfig for 3.11.2 in 25.03.

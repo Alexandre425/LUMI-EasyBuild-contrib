@@ -1,0 +1,74 @@
+easyblock = 'ConfigureMake'
+
+local_giflib_version =       '6.1.3'         # https://sourceforge.net/projects/giflib/files/
+local_libheif_version =      '1.23.1'        # https://github.com/strukturag/libheif/releases
+local_libjpegturbo_version = '3.2.0'         # https://github.com/libjpeg-turbo/libjpeg-turbo/releases
+local_libpng_version =       '1.6.58'        # http://www.libpng.org/pub/png/libpng.html (Not yet in EB 2025a when checking)
+local_libtiff_version =      '4.7.2'         # https://download.osgeo.org/libtiff/
+local_libwebp_version =      '1.6.0'         # https://github.com/webmproject/libwebp/releases
+
+local_Imlib2_version =       '1.12.6'        # https://sourceforge.net/projects/enlightenment/files/imlib2-src/
+
+name =    'Imlib2'
+version = local_Imlib2_version
+
+homepage = 'https://docs.enlightenment.org/api/imlib2/html/'
+
+whatis = [
+    'Description: Imlib2 is a library that does image file loading and saving as well as rendering, manipulation, arbitrary polygon support'
+]
+
+description = """
+This is the Imlib 2 library - a library that does image file loading and
+saving as well as rendering, manipulation, arbitrary polygon support, etc.
+It does ALL of these operations FAST. Imlib2 also tries to be highly
+intelligent about doing them, so writing naive programs can be done
+easily, without sacrificing speed.
+"""
+
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+toolchain_opts = {'pic': True}
+
+source_urls = ['https://sourceforge.net/projects/enlightenment/files/imlib2-src/%(version)s']
+sources =     [SOURCELOWER_TAR_GZ]
+checksums =   ['59743ce82aefa9c1ec9476af608d541b74164714d2928fbd84ff5db6c4399079']
+
+build_deps = [
+    ('buildtools', '%(toolchain_version)s', '', SYSTEM),
+    ('craype-accel-none', EXTERNAL_MODULE),
+]
+
+deps = [
+    ('giflib',        local_giflib_version),
+    ('libheif',       local_libheif_version),
+    ('libjpeg-turbo', local_libjpegturbo_version),
+    ('libpng',        local_libpng_version),
+    ('LibTIFF',       local_libtiff_version),
+    ('libwebp',       local_libwebp_version),
+    ('X11',           '%(toolchain_version)s'),
+]
+
+pre_configure_opts = 'module unload cray-libsci cray-mpich xpmem rocm && '
+pre_install_opts = pre_build_opts = pre_configure_opts
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s',
+    'cd ../%(namelower)s-%(version)s && cp AUTHORS COPYING COPYING-PLAIN ChangeLog INSTALL README %(installdir)s/share/licenses/%(name)s',
+]
+
+sanity_check_paths = {
+    'files': ['bin/imlib2_%s' % x for x in ['bumpmap', 'colorspace', 'conv', 'grab', 'poly', 'show', 'test', 'view']] +
+             ['include/Imlib2.h', 'lib/libImlib2.a', f'lib/libImlib2.{SHLIB_EXT}'] + 
+             ['share/licenses/%(name)s/COPYING'],
+    'dirs':  []
+}
+
+sanity_check_cmds = [ 
+    'pkg-config --validate imlib2',
+    f'pkg-config --exact-version={version} imlib2',
+    # Only command that actually runs with -h and does produce a zero return code.
+    # Most commands crash without access to an X11 display and cannot be tested in EasyBuild.
+    'imlib2_conv -h',    
+]
+
+env_mod_category = 'vis'
