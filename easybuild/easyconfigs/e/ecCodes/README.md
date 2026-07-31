@@ -1,5 +1,12 @@
 # ecCodes
 
+ecCodes is a package developed by ECMWF which provides an application
+programming interface and  a set of tools for decoding and encoding messages
+in the following formats: WMO FM-92 GRIB edition 1 and edition 2, WMO FM-94 BUFR
+edition 3 and edition 4, WMO GTS abbreviated header (only decoding).
+
+ecCodes itself does not use MPI, but packages using ecCodes may of cause use MPI.
+
 -   [ecCodes home page](https://confluence.ecmwf.int/display/ECC/ecCodes+Home)
 
     -    [Downloads from the home page](https://confluence.ecmwf.int/display/ECC/Releases)
@@ -74,4 +81,7 @@ TODO: ecCodes comes with samples. Can we figure out how to use them and build so
 sanity checks with them?
 
 
+### Version 2.48.0 for 26.03
 
+-   Trivial port from 2.42.0 but switched to EB6-compatible parameters and improved the
+    sanity checks.

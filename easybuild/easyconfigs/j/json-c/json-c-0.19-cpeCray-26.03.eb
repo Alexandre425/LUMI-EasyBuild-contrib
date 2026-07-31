@@ -1,0 +1,62 @@
+# Adapted from the recipe in the EasyBuilders repository by Kurt Lust
+# (kurt.lust@uantwerpen.be) for the LUMI consortium.
+easyblock = 'CMakeMake'
+
+local_jsonc_version =        '0.19'          # https://github.com/json-c/json-c/tags
+
+local_source_suffix = '-20260627'
+
+name =    'json-c'
+version = local_jsonc_version
+
+homepage = 'https://github.com/json-c/json-c'
+
+whatis = [
+    'Description: JSON-C implements a reference counting object model'
+]
+
+description = """
+JSON-C implements a reference counting object model that allows you to easily
+construct JSON objects  in C, output them as JSON formatted strings and parse
+JSON formatted strings back into the C representation of JSON objects.
+"""
+
+toolchain = {'name': 'cpeCray', 'version': '26.03'}
+toolchain_opts = {'extra_cflags': '-Wno-error=strict-prototypes'}
+toolchain_opts = {'extra_cflags': '-Wno-error=implicit-function-declaration'}
+
+source_urls = ['https://github.com/json-c/json-c/archive/']
+sources =     ['json-c-%%(version)s%s.tar.gz' % local_source_suffix]
+checksums =   ['f17a6d7d265cf840dfd8f0f46a606d98c6b5b26dc7cfe27275d1546a213086c8']
+
+build_deps = [
+    ('buildtools',   '%(toolchain_version)s',   '', True),
+]
+
+pre_configure_opts = 'module unload cray-libsci cray-mpich xpmem rocm &&'
+pre_install_opts = pre_test_opts = pre_build_opts = pre_configure_opts
+
+configure_opts = '-DCMAKE_INSTALL_LIBDIR=lib '
+
+# disable using Valgrind during the tests to avoid failures caused by using an OS Valgrind
+pre_test_opts = ' USE_VALGRIND=0 '
+run_test = 'test'
+
+local_source_dir = '../%(name)s-%(name)s-%(version)s' + local_source_suffix
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s && ' + 
+    'cp %s/COPYING %s/AUTHORS  %%(installdir)s/share/licenses/%%(name)s' % (local_source_dir, local_source_dir)
+]
+
+sanity_check_paths = {
+    'files': ['lib/libjson-c.a', 'lib/libjson-c.%s' % SHLIB_EXT, 'lib/pkgconfig/json-c.pc'],
+    'dirs':  ['include/json-c', 'lib/cmake/json-c'],
+}
+
+sanity_check_cmds = [
+    'pkg-config --validate json-c',
+    f'pkg-config --exact-version={version} json-c'
+]
+
+env_mod_category = 'lib'

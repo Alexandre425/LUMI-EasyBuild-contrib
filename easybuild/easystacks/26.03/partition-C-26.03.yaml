@@ -55,3 +55,15 @@ easyconfigs:
   - zfp-1.0.1-cpeCray-26.03.eb
   - Blosc2-3.2.3-cpeGNU-26.03.eb
   - Blosc2-3.2.3-cpeCray-26.03.eb
+#
+# CDO
+#
+  - json-c-0.19-cpeGNU-26.03.eb
+  - json-c-0.19-cpeCray-26.03.eb
+  #- json-c-0.19-cpeAOCC-26.03.eb
+  - CMOR-3.15.2-cpeGNU-26.03.eb
+  - CMOR-3.15.2-cpeCray-26.03.eb
+  - ecCodes-2.48.0-cpeGNU-26.03.eb
+  - ecCodes-2.48.0-cpeCray-26.03.eb
+  - CDO-2.6.3-cpeGNU-26.03.eb
+  - CDO-2.6.3-cpeCray-26.03.eb

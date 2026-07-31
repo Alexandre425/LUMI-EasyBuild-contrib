@@ -1,5 +1,13 @@
 # CDO instructions
 
+CDO is a collection of command line Operators to manipulate and analyse Climate
+and NWP model Data. Supported data formats are GRIB 1/2, netCDF 3/4, SERVICE,
+EXTRA and IEG. There are more than 600 operators available.
+
+[Some operators are parallelised with OpenMP](https://code.mpimet.mpg.de/projects/cdo/wiki/OpenMP_support).
+The [installation instructions](https://mpim-sw.gitlab-pages.dkrz.de/cdo/intro/install.html#building-from-sources)
+do not mention MPI, but the cdi library component does contain optional MPI.
+
 -   [CDO home page](https://code.mpimet.mpg.de/projects/cdo)
 
     -   [CDO downloads page](https://code.mpimet.mpg.de/projects/cdo/files)
@@ -91,3 +99,9 @@
 
 -   The cpeCray version had linking issues though and we had to allow undefined symbols.
     **It is not clear to what extent that can have an effect on the working of CDO.**
+
+
+### Version 2.6.3 for CPE 26.03
+
+-   A straightforward port of the 2.5.4 EasyConfig for 25.03, but used EB6-compatible
+    parameters and improved the sanity checks.
