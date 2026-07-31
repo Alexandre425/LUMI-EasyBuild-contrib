@@ -34,4 +34,9 @@
 
 -   Trivial port of the EasyConfig for 1.27.0 for 24.03, but with a change of download
     instructions.
-    
+
+
+### Version 1.34.8 for 26.03 and later
+
+-   Trivial port of the EasyConfig for 1.34.8 for 25.03, but updated the EasyConfig parameters
+    to those compatible with EB 6 and improved the sanity checks.

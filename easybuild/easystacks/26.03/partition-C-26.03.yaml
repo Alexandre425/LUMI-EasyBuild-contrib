@@ -25,6 +25,30 @@ easyconfigs:
   - ADIOS2-2.12.1-cpeCray-26.03-noMPI-hdf5.eb
   - ADIOS2-2.12.1-cpeCray-26.03-MPI-hdf5-parallel.eb
 #
+# amd-aocl (AOCL)
+#
+# TODO
+#
+# aria2
+#
+  - CppUnit-1.15.1-cpeGNU-26.03.eb
+  - CppUnit-1.15.1-cpeCray-26.03.eb
+  #- CppUnit-1.15.1-cpeAOCC-26.03.eb
+  - c-ares-1.34.8-cpeGNU-26.03.eb
+  - c-ares-1.34.8-cpeCray-26.03.eb
+  #- c-ares-1.34.8-cpeAOCC-26.03.eb
+  - aria2-1.37.0-cpeGNU-26.03.eb
+  - aria2-1.37.0-cpeCray-26.03.eb
+  #- aria2-1.37.0-cpeAOCC-26.03.eb
+#
+# BCFtools and related bio-informatics tools
+#
+  - HTSlib-1.24-cpeGNU-26.03.eb
+  - BCFtools-1.24-cpeGNU-26.03.eb
+  - SAMtools-1.24-cpeGNU-26.03.eb
+  - STAR-2.7.11b-cpeGNU-26.03.eb
+  - VCFtools-0.1.17-cpeGNU-26.03.eb
+#
 # Blosc2 3.x, originally for ADIOS2 until we found out ADIOS2 needs version 2.x
 #
   - zfp-1.0.1-cpeGNU-26.03.eb
