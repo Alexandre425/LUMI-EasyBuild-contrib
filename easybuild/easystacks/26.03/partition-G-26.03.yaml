@@ -14,14 +14,16 @@ easyconfigs:
   - zfp-1.0.1-cpeCray-26.03.eb
   - OpenPGM-5.2.122-cpeGNU-26.03.eb
   - OpenPGM-5.2.122-cpeCray-26.03.eb
-  - libsodium-1.0.21-cpeGNU-26.03.eb
-  - libsodium-1.0.21-cpeCray-26.03.eb
+  - libsodium-1.0.22-cpeGNU-26.03.eb
+  - libsodium-1.0.22-cpeCray-26.03.eb
   - ZeroMQ-4.3.5-cpeGNU-26.03.eb
   - ZeroMQ-4.3.5-cpeCray-26.03.eb
   - yaml-cpp-0.9.0-cpeGNU-26.03.eb
   - yaml-cpp-0.9.0-cpeCray-26.03.eb
-  - ADIOS2-2.11.0-cpeGNU-26.03-noMPI-hdf5.eb
-  - ADIOS2-2.11.0-cpeGNU-26.03-MPI-hdf5-parallel.eb
+  #- ADIOS2-2.12.1-cpeGNU-26.03-noMPI-hdf5.eb
+  #- ADIOS2-2.12.1-cpeGNU-26.03-MPI-hdf5-parallel.eb
+  - ADIOS2-2.12.1-cpeCray-26.03-noMPI-hdf5.eb
+  - ADIOS2-2.12.1-cpeCray-26.03-MPI-hdf5-parallel.eb
 #
 # Blosc2 3.x, originally for ADIOS2 until we found out ADIOS2 needs version 2.x
 #
