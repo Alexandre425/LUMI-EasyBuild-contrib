@@ -67,3 +67,12 @@ easyconfigs:
   - ecCodes-2.48.0-cpeCray-26.03.eb
   - CDO-2.6.3-cpeGNU-26.03.eb
   - CDO-2.6.3-cpeCray-26.03.eb
+#
+# CP2K
+# Skipped for now
+#
+#
+# Cython
+#
+  - Cython-3.2.9-cpeGNU-26.03.eb
+# On LUMI-G also used for CuPy.

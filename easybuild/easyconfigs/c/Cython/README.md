@@ -25,3 +25,10 @@ These EasyConfigs are meant to be used when the version of Cython in
 -   Cray Python comes with Cython but the version is too old for some packages.
 
 -   Mostly a port of the 3.0.10 EasyConfig for 24.03.
+
+
+### Version 3.2.9 for Cray Python in 26.03
+
+-   Mostly a trivial port of the 3.1.2 EasyConfigs but made them more uniform,
+    switched to EB6-compatible parameters and improved the sanity checks.
+

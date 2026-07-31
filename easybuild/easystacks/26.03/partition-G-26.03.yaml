@@ -43,3 +43,11 @@ easyconfigs:
   - zfp-1.0.1-cpeCray-26.03.eb
   - Blosc2-3.2.3-cpeGNU-26.03.eb
   - Blosc2-3.2.3-cpeCray-26.03.eb
+#
+# VeloxChem (unfinished)
+#
+  - Cython-3.2.9-cpeAMD-26.03.eb
+  #- pybind11-2.12.0-cpeAMD-26.03.eb
+  #- SciPy-bundle-1.14.1-1.26.4-cpeAMD-26.03.eb
+  #- libxc-7.0.0-cpeAMD-26.03-FHC.eb
+  #- VeloxChem-1.0-gpu-cpeAMD-26.03-rocm.eb

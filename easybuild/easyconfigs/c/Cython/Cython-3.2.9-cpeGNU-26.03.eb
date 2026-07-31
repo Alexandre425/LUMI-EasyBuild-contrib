@@ -1,0 +1,65 @@
+#DOC EasyConfig to be used with Cray Python when its Cython implementation is too old.
+easyblock = 'PythonPackage'
+
+local_Cython_version =       '3.2.9'         # https://pypi.org/project/Cython/
+
+local_craypython_version =   '3.12.12'
+
+name =    'Cython'
+version = local_Cython_version
+
+homepage = 'https://cython.org/'
+
+whatis = [
+    'Description: Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language'
+]
+
+description = """
+Cython is an optimising static compiler for both the Python programming
+language and the extended Cython programming language (based on Pyrex).
+"""
+
+doc_urls = [
+    'https://cython.org/#documentation',
+    'https://github.com/cython/cython',
+]
+
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+
+sources =   [SOURCELOWER_TAR_GZ]
+checksums = ['d249c9022ab13286b17bd66f30609e800c5f95efeecb06168990c7a66cecde6c']
+
+build_deps = [
+    ('buildtools-python', '%(toolchain_version)s', '-cray-python%(pyshortver)s', SYSTEM),
+]
+
+deps = [
+    ('cray-python', EXTERNAL_MODULE),
+]
+
+# Cython currently requires pip to build correctly
+use_pip = True
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/Cython',
+    'cp CHANGES.rst COPYING.txt INSTALL.txt LICENSE.txt README.rst USAGE.txt %(installdir)s/share/licenses/Cython'
+]
+
+local_python_mm = ''.join( local_craypython_version.split('.')[:2] )
+
+sanity_check_paths = {
+    'files': [
+        'bin/cygdb',
+        'bin/cython',
+        'bin/cythonize',
+        'lib/python%(pyshortver)s/site-packages/cython.py',
+        f'lib/python%(pyshortver)s/site-packages/Cython/Utils.cpython-{local_python_mm}-x86_64-linux-gnu.so',
+    ],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+sanity_check_cmds = [
+    "cython --version"
+]
+
+env_mod_category = 'lang'
