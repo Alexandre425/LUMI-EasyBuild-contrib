@@ -1,0 +1,81 @@
+# contributed by Luca Marsella (CSCS), Theofilos Manitaras (CSCS)
+# Adapted by Kurt Lust (kurt.lust@uantwerpen.be) for the LUMI consortium
+#DOC ESMF compiled with support for MPICH and PIO. 
+#DOC It also uses netCDF with the parallel HDF5 back-end.
+easyblock = 'esmfcray'
+
+local_ESMF_version =         '8.9.1'         # https://github.com/esmf-org/esmf/releases - Candidate for version bump if time left
+
+name =          'ESMF'
+version =       local_ESMF_version
+version_suffix = '-MPI-PIO'
+
+homepage = 'http://sourceforge.net/projects/esmf'
+
+whatis = [
+    'Description: ESMF is the Earth System Modeling Framework, software for coupling weather, climate and related models'
+]
+
+description = """
+The Earth System Modeling Framework (ESMF) is software for building and coupling weather,
+climate, and related models.
+
+This module provides the parallel (MPI) version. PIO support is also enabled but this 
+required some dirty tricks, so no guarantee for future support.
+"""
+
+software_license_urls = [
+    f'https://github.com/esmf-org/esmf/blob/v{version}/LICENSE',
+]
+
+toolchain = {'name': 'cpeCray', 'version': '26.03'}
+toolchain_opts = {'usempi': True, 'openmp': True}
+
+# https://github.com/esmf-org/esmf/archive/refs/tags/v8.3.0.tar.gz
+sources = [
+    {
+        'download_filename': 'v%(version)s.tar.gz',
+        'filename':          SOURCE_TAR_GZ,
+        'source_urls':       ['https://github.com/esmf-org/esmf/archive/refs/tags']
+    }
+]
+patches = ['ESMF-8.9.1_libopts.patch']
+checksums = [
+    'e3fafd0c057bf1c3b4c41c997b392016d621b1f1a7c601355c325a7f58425d78',  # ESMF-8.9.1.tar.gz
+    '336fe13aeb2a751a43d318393f8a75e2a3c6887bb38a63f769032559eef93760',  # ESMF-8.9.1_libopts.patch
+]
+
+build_deps = [ # Create a reproducible build environment.
+    ('buildtools', '%(toolchain_version)s', '', True),
+]
+
+deps = [
+    ('cray-hdf5-parallel', EXTERNAL_MODULE),
+    ('cray-netcdf-hdf5parallel', EXTERNAL_MODULE),
+]
+
+import os as local_os
+local_LUMI_partition = local_os.getenv('LUMI_STACK_PARTITION')
+
+mpicomm  = 'mpi'     # System mpi, see build_config/Unicos.gfortran.default
+usepio   = 'internal'
+optlevel = '2'       # Has to be a string
+
+if local_LUMI_partition == 'G': 
+    pre_configure_opts  = 'module unload craype-accel-amd-gfx90a && '
+    pre_build_opts   = 'module unload craype-accel-amd-gfx90a && '
+    pre_install_opts = 'module unload craype-accel-amd-gfx90a && '
+    
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s',
+    'cd %(start_dir)s && cp LICENSE README.md %(installdir)s/share/licenses/%(name)s',   
+]
+
+# Just a single sanity check command as the other commands generate output files even when simply using
+# -h or --version. It should be enough though to check if the executable can find all necessary 
+# shared libraries.
+sanity_check_cmds = [ 
+    'ESMF_PrintInfoC --version',
+]
+
+env_mod_category = 'geo'

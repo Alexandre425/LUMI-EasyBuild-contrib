@@ -37,3 +37,6 @@ However, NCO needs the latter antique ANTLR2 versions.
     
 -   For 25.03, added Java as a dependency rather than relying on the system one as 
     we did the development in a container without Java.
+
+-   For 26.03, we switched to the EB6-compatible parameters and also avoided the use 
+    of `pyshortver` in the `version_suffix` as that doesn't work with out renaming script.

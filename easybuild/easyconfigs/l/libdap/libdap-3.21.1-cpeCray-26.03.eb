@@ -1,0 +1,85 @@
+# Adapted by Kurt Lust (kurt.lust@uantwerpen.be) for the LUMI consortium
+easyblock = 'ConfigureMake'
+
+local_cURL_version =         '8.21.0'        # https://curl.haxx.se/download/ - Newer than 2026.1?
+local_CppUnit_version =      '1.15.1'        # https://dev-www.libreoffice.org/src/
+local_libxml2_version =      '2.15.3'        # http://xmlsoft.org/sources/
+local_PCRE2_version =        '10.47'         # https://github.com/PCRE2Project/pcre2/releases  # Not yet in EB 2025a when checked for installation
+local_libtirpc_version =     '1.3.7'         # https://sourceforge.net/projects/libtirpc/files/libtirpc/
+local_libnsl_version =       '2.0.1'         # https://github.com/thkukuk/libnsl/releases
+local_util_version =         '2.42.2'        # https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/ (Not yet in EB 2025a when checking)
+
+local_libdap_version =       '3.21.1'        # https://www.opendap.org/pub/source/
+
+name =    'libdap'
+version = local_libdap_version
+
+homepage = 'https://www.opendap.org/software/libdap'
+
+whatis = [
+    'Description: libdap is a C++ SDK implementtin DAP 2.0 and 4.0'
+]
+
+description = """
+A C++ SDK which contains an implementation of DAP 2.0 and
+DAP4.0. This includes both Client- and Server-side support classes.
+"""
+
+software_license_urls = ['https://github.com/OPENDAP/libdap4/blob/master/COPYING']
+
+toolchain = {'name': 'cpeCray', 'version': '26.03'}
+
+sources = [
+    {
+        'download_filename': '%(version)s.tar.gz',
+        'filename':          SOURCE_TAR_GZ,
+        'source_urls':       ['https://github.com/OPENDAP/libdap4/archive/refs/tags/']
+    }
+]
+checksums =   ['d5b301e03af89b4c4269d594164ba2e709b51d54468caf8a9a7ba2ffc0f711b9']
+
+build_deps = [ # Create a reproducible build environment.
+    ('buildtools',         '%(toolchain_version)s',   '', True),  # Bison, flex
+    ('craype-network-none', EXTERNAL_MODULE),
+    ('craype-accel-host',   EXTERNAL_MODULE),
+]
+
+deps = [
+    ('cURL',       local_cURL_version),
+    ('CppUnit',    local_CppUnit_version),
+    ('libxml2',    local_libxml2_version),
+    ('libtirpc',   local_libtirpc_version),
+    ('PCRE2',      local_PCRE2_version),
+    ('util-linux', local_util_version),
+]
+
+pre_configure_opts = 'module unload rocm cray-libsci && '
+pre_install_opts = pre_test_opts = pre_build_opts = pre_configure_opts
+
+pre_configure_opts += 'autoreconf --force --install --verbose && '
+pre_configure_opts += 'LDFLAGS="$LDFLAGS -L$EBROOTICU/lib -licuuc -Wl,--allow-shlib-undefined" '
+configure_opts = 'TIRPC_LIBS="-L$EBROOTLIBTIRPC/lib -ltirpc"'
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s && cp COPYING COPYRIGHT_URI COPYRIGHT_W3C %(installdir)s/share/licenses/%(name)s'
+]
+
+sanity_check_paths = {
+    'files': ['bin/getdap', 'bin/getdap4', 'bin/dap-config', 'lib/libdap.a', f'lib/libdap.{SHLIB_EXT}'],
+    'dirs':  ['include/libdap'],
+}
+
+sanity_check_cmds = [
+    'dap-config --libs',
+    'dap-config-pkgconfig --libs',
+    'getdap -V',
+    'getdap4 -V',
+    'pkg-config --validate libdap',
+    'pkg-config --validate libdapclient',
+    'pkg-config --validate libdapserver',
+    f'pkg-config --exact-version={version} libdap',
+    f'pkg-config --exact-version={version} libdapclient',
+    f'pkg-config --exact-version={version} libdapserver',
+]
+
+env_mod_category = 'lib'

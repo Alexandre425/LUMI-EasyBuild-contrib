@@ -22,7 +22,7 @@ local_CubeWriter_version =   '4.8.2'         # https://www.scalasca.org/scalasca
 local_Cython_version =       '3.2.9'         # https://pypi.org/project/Cython/
 
 local_ecCodes_version =      '2.48.0'        # https://confluence.ecmwf.int/display/ECC/Releases
-local_ESMF_version =         '8.8.1'         # https://github.com/esmf-org/esmf/releases - Candidate for version bump if time left
+local_ESMF_version =         '8.9.1'         # https://github.com/esmf-org/esmf/releases - Candidate for version bump if time left
 
 local_feh_version =          '3.12.2'        # https://github.com/derf/feh/tags
 
@@ -36,6 +36,7 @@ local_HTSlib_version =       '1.24'          # https://github.com/samtools/htsli
 
 local_Imlib2_version =       '1.12.6'        # https://sourceforge.net/projects/enlightenment/files/imlib2-src/
 
+local_Java_version =         '25'
 local_jsonc_version =        '0.19'          # https://github.com/json-c/json-c/tags
 local_jsonfortran_version =  '9.0.5'         # https://github.com/jacobwilliams/json-fortran/releases
 
@@ -53,8 +54,9 @@ local_libxsmm_version =      '1.17'          # https://github.com/libxsmm/libxsm
 local_libxsmm_CP2K_version = '1.17+e0c4a23'  # https://github.com/libxsmm/libxsmm/releases - Special commit for CP2K
 
 local_MATIO_version =        '1.5.29'        # https://github.com/tbeu/matio/releases
+local_MUMPS_version =        '5.9.1'         # https://mumps-solver.org/index.php?page=dwnld
 
-local_NCO_version =          '5.3.4'         # https://github.com/nco/nco/releases
+local_NCO_version =          '5.3.9'         # https://github.com/nco/nco/releases
 local_ncview_version =       '2.1.9'         # https://cirrus.ucsd.edu/~pierce/ncview/
 
 local_OPARI2_version =       '2.0.8'         # https://www.vi-hps.org/projects/score-p/

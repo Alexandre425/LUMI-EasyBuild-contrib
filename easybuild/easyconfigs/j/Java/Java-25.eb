@@ -1,0 +1,27 @@
+#DOC! User installation is possible in `partit0on/common`, making a single installation
+#DOC! available in all regular partitions.
+easyblock = 'ModuleRC'
+
+local_java_fullversion = '25.0.4+7'
+
+name =    'Java'
+version = '25'
+
+homepage = 'https://java.com/'
+
+whatis = [
+    'Description: Java Platform, Standard Edition (Java SE) lets you develop and deploy Java applications on desktops and servers'    
+]
+
+description = """
+Java Platform, Standard Edition (Java SE) lets you develop and deploy
+Java applications on desktops and servers.
+"""
+
+toolchain = SYSTEM
+
+deps = [
+    ('Java', local_java_fullversion)
+]
+
+env_mod_category = 'lang'

@@ -102,3 +102,27 @@ easyconfigs:
   - mpiFileUtils-0.12-cpeGNU-26.03.eb
   - mpiFileUtils-0.12-cpeCray-26.03.eb
   #- mpiFileUtils-0.12-cpeAOCC-26.03.eb
+#
+# MUMPS
+#
+  - MUMPS-5.9.1-cpeGNU-26.03-static-OpenMP.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-static-noOpenMP.eb
+#
+# NCO
+#
+  - CppUnit-1.15.1-cpeGNU-26.03.eb
+  - CppUnit-1.15.1-cpeCray-26.03.eb
+  #- CppUnit-1.15.1-cpeAOCC-26.03.eb
+  - libdap-3.21.1-cpeGNU-26.03.eb
+  - libdap-3.21.1-cpeCray-26.03.eb
+# libdap was used in NCO but have trouble with it in 25.03 and 26.03
+  - Java-25.0.4+7.eb
+  - Java-25.eb
+  - ANTLR-2.7.7-cpeGNU-26.03-cray-python3.12.eb
+  - ANTLR-2.7.7-cpeCray-26.03-cray-python3.12.eb
+  - ESMF-8.9.1-cpeGNU-26.03-noMPI.eb
+  - ESMF-8.9.1-cpeGNU-26.03-MPI-PIO.eb
+  - ESMF-8.9.1-cpeCray-26.03-noMPI.eb
+  - ESMF-8.9.1-cpeCray-26.03-MPI-PIO.eb
+  - NCO-5.3.9-cpeGNU-26.03.eb
+  #- NCO-5.3.9-cpeCray-26.03.eb. # Still issues with GSL?

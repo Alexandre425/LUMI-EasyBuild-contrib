@@ -1,0 +1,74 @@
+#DOC! User installation is possible in `partit0on/common`, making a single installation
+#DOC! available in all regular partitions.
+easyblock = 'EB_Java'
+
+name =        'Java'
+version =     '25.0.4+7'
+
+local_version = version.split('+')[0]
+local_build =   version.split('+')[1]
+local_version_major = local_version.split('.')[0]
+
+homepage = 'http://openjdk.java.net'
+
+whatis = [
+    'Description: Java Platform, Standard Edition (Java SE) lets you develop and deploy Java applications on desktops and servers'    
+]
+
+description = """
+Java Platform, Standard Edition (Java SE) lets you develop and deploy
+Java applications on desktops and servers.
+"""
+
+doc_urls = [
+    'Man pages in section 1 (after loading the module)',    
+]
+
+toolchain = SYSTEM
+
+# https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4%2B7/OpenJDK25U-jdk_x64_linux_hotspot_25.0.4_7.tar.gz
+local_tarball = f'OpenJDK{local_version_major}U-jdk_x64_linux_hotspot_{local_version}_{local_build}.tar.gz'
+
+# Using the Adoptium Eclipse Temurin builds, recommended by https://whichjdk.com/#distributions
+
+source_urls = [f'https://github.com/adoptium/temurin{local_version_major}-binaries/releases/download/jdk-{local_version}+{local_build}/']
+sources = [local_tarball]
+
+checksums = [
+    {
+        local_tarball: 'e58fcdcd637b25c03ca84cbbcefc70d11efb8f4b4cbd05decc9f661769d77f94',
+    }
+]
+
+sanity_check_cmds = [
+    'jar --version',
+    'jarsigner --help',
+    'java --version',
+    'javac --version',
+    'javadoc --version',
+    'javap --help',
+    'jcmd --help',
+    # Cannot test for jconsole, likely because it may need some graphics library?
+    'jdb --help',
+    'jdeprscan --help', # Does also have a --version but that returns exit code 1.
+    'jdeps --version',
+    'jfr --version',
+    'jhsdb --help',
+    'jimage --version',
+    'jinfo --help',
+    'jlink --version',
+    'jmap --help',
+    'jmod --version',
+    'jpackage --version',
+    'jps --help',
+    'jrunscript --help',
+    'jshell --version',
+    'jstack --help',
+    'jstat --help',
+    'jstatd --help',
+    'keytool --help',
+    # No easy test for rmiregistry, or we'd have to check the error output to see if the application has loaded properly.
+    # No easy test for serialver, or we'd have to check the error output to see if the application has loaded properly.
+]
+
+env_mod_category = 'lang'
