@@ -47,3 +47,5 @@ issues with an X11 library).
 
 -   Stuck to 2.1.9 also for 25.03 even though there was already a 2.1.10 and 2.1.11. 
     But these had issues with the Xaw X11 library.
+
+-   For 26.03, we switched to EB6-compatible parameters.

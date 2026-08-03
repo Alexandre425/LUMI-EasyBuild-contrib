@@ -126,3 +126,9 @@ easyconfigs:
   - ESMF-8.9.1-cpeCray-26.03-MPI-PIO.eb
   - NCO-5.3.9-cpeGNU-26.03.eb
   #- NCO-5.3.9-cpeCray-26.03.eb. # Still issues with GSL?
+#
+# ncview
+#
+  - ncview-2.1.9-cpeGNU-26.03.eb
+  - ncview-2.1.9-cpeCray-26.03.eb
+  #- ncview-2.1.9-cpeAOCC-25.03.eb
