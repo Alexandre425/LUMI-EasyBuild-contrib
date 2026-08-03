@@ -30,3 +30,9 @@ tailor the wrapping process to suit your application.
 ### Version 4.4.0 for 25.03
 
 -   The EasyConfig is a straightforward port of the 4.1.1 one for previous versions.
+
+
+### Version 4.4.1 for 26.03
+
+-   The EasyConfig is a straightforward port of the 4.4.0 one for 25.03, but we switched
+    to EB6-compatible parameters.

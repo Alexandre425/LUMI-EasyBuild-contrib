@@ -13,6 +13,8 @@
 
 -   [GEOS in the CSCS repoistory](https://github.com/eth-cscs/production/tree/master/easybuild/easyconfigs/g/GEOS)
 
+-   [geos package in Spack](https://packages.spack.io/package.html?name=geos)
+
 
 ### Version 3.11.0 for cpeGNU 22.08
 

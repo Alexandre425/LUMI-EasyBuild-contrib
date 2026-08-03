@@ -86,3 +86,12 @@ easyconfigs:
 # fpocket
 #
   - fpocket-4.2.3-cpeGNU-26.03.eb
+#
+# GDAL
+#
+  - HDF-4.2.16-2-cpeGNU-26.03.eb
+  - GEOS-3.14.1-cpeGNU-26.03.eb
+  - Xerces-C++-3.3.0-cpeGNU-26.03.eb
+  - SWIG-4.4.1-cpeGNU-26.03.eb
+  - GDAL-3.13.2-cpeGNU-26.03-noPython.eb
+  - GDAL-3.13.2-cpeGNU-26.03-cray-python-3.12.12.eb
