@@ -35,3 +35,5 @@ The EasyConfig compiles some additional libraries right into the package:
 -   Found the source of the compiler error in mpiFileUtils and corrected that by adding 
     `-D_GNU_SOURCE` to `FLAGS` so that the flags that were needed to avoid an error 
     in Clang are no longer needed. They were also needed for GCC 14.
+
+-   Switched to EB6-compatible parameters for 26.03.

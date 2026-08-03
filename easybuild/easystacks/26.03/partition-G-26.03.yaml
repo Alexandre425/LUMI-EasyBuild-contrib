@@ -44,6 +44,13 @@ easyconfigs:
   - Blosc2-3.2.3-cpeGNU-26.03.eb
   - Blosc2-3.2.3-cpeCray-26.03.eb
 #
+# mpiFileUtils
+#
+  - lustre-includes-2.15.5.eb # Though we may just want this in common.
+  - mpiFileUtils-0.12-cpeGNU-26.03.eb
+  - mpiFileUtils-0.12-cpeCray-26.03.eb
+  - mpiFileUtils-0.12-cpeAMD-26.03.eb
+#
 # VeloxChem (unfinished)
 #
   - Cython-3.2.9-cpeAMD-26.03.eb

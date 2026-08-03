@@ -95,3 +95,10 @@ easyconfigs:
   - SWIG-4.4.1-cpeGNU-26.03.eb
   - GDAL-3.13.2-cpeGNU-26.03-noPython.eb
   - GDAL-3.13.2-cpeGNU-26.03-cray-python-3.12.12.eb
+#
+# mpiFileUtils
+#
+  - lustre-includes-2.15.5.eb # Though we may just want this in common.
+  - mpiFileUtils-0.12-cpeGNU-26.03.eb
+  - mpiFileUtils-0.12-cpeCray-26.03.eb
+  #- mpiFileUtils-0.12-cpeAOCC-26.03.eb
