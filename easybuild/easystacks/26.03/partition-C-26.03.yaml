@@ -132,3 +132,7 @@ easyconfigs:
   - ncview-2.1.9-cpeGNU-26.03.eb
   - ncview-2.1.9-cpeCray-26.03.eb
   #- ncview-2.1.9-cpeAOCC-25.03.eb
+#
+# OpenBLAS
+#
+  - OpenBLAS-0.3.32-cpeGNU-26.03.eb

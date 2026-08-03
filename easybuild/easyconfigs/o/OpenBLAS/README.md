@@ -61,3 +61,8 @@ in the LUMI software stacks.
 ### Version 0.3.30 for cpeGNU 25.03
 
 -   The EasyConfig is an adaptation of the standard EasyBuilders one.
+
+
+### Version 0.3.32 for cpeGNU 26.03
+
+-   The EasyConfig is an adaptation of the standard EasyBuilders one.
