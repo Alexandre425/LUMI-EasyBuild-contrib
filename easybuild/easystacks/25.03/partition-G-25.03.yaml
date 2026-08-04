@@ -134,3 +134,16 @@ easyconfigs:
   - libxc-7.0.0-cpeAMD-25.03-FHC.eb
   #- VeloxChem-1.0-gpu-cpeAMD-25.03-rocm.eb
 #
+################################################################################
+#
+# EPICURE contributions
+#
+#
+# iPIC3D
+#
+  - iPIC3D-20260205-cpeCray-25.03-rocm.eb
+#
+# URANOS
+#
+  - URANOS-20260515-cpeCray-25.03-rocm.eb
+#

@@ -1,19 +1,27 @@
 # #
 # Author:    Bibek Chapagain <bibek.chapagain@bsc.es>
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
+# Developed by the EPICURE project (https://epicure-hpc.eu/)
 # #
-name = 'iPIC3D'
-version = '20260211'
-
 easyblock= 'CMakeMake'
 
+name =    'iPIC3D'
+version = '20260211'
+
 homepage = 'https://kth-hpc.github.io/iPIC3D/'
-description = """iPIC3D is a three-dimensional parallel PIC code. On multiprocessor architectures, 
+
+whatis = [
+    'Description: iPIC3D is a parallel 3D implicit Particle-In-Cell code'
+]
+
+description = """
+iPIC3D is a three-dimensional parallel PIC code. On multiprocessor architectures, 
 the domain decomposition technique is used to divide the computational workload among processors. 
 For implicit PIC where the cost of particle moving and of field solving are of the same order 
 (unlike explicit PIC where most of the cost resides with the particles), it is crucial that both field 
 solving and particle moving be parallelized efficiently. An important aspect of efficiency is the need 
-to retain the particles and cells belonging to a subdomain on the same processor.""" 
+to retain the particles and cells belonging to a subdomain on the same processor.
+""" 
 
 toolchain = {'name': 'cpeAOCC', 'version': '25.03'}
 toolchainopts = {'pic': True, 'usempi': True}
@@ -30,12 +38,14 @@ sources = [
         }
     },
 ]
-
 checksums = [None]
+
+builddependencies = [
+    ('buildtools', '%(toolchain_version)s', '', True),
+]
 
 dependencies = [
     ('cray-hdf5', EXTERNAL_MODULE),
-
 ]
 
 # Matches: mkdir build && cd build
@@ -50,12 +60,14 @@ postinstallcmds = [
 
     "cp $(find %(builddir)s -type f -name iPIC3D | head -n 1) %(installdir)s/bin/",
     "find %(builddir)s -name '*.so' -exec cp {} %(installdir)s/lib/ \\;",
+
+    'mkdir -p %(installdir)s/share/licenses/%(name)s',
+    'cd ../iPIC3D-CPU-SPACE-CoE && cp LICENSE NOTICE README.md %(installdir)s/share/licenses/%(name)s',
 ]
 
 sanity_check_paths = {
     'files': ['bin/iPIC3D'],
-    'dirs': ['bin'],
+    'dirs':  ['bin'],
 }
 
 moduleclass = 'phys'
-
