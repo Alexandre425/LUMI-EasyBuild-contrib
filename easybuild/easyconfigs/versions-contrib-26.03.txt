@@ -33,6 +33,7 @@ local_h5py_version =         '3.11.0'        # https://github.com/h5py/h5py/rele
 local_HDF_version =          '4.2.16-2'      # https://support.hdfgroup.org/ftp/HDF/releases/
 local_HeFFTe_version =       '2.4.1'         # https://github.com/icl-utk-edu/heffte/releases
 local_HTSlib_version =       '1.24'          # https://github.com/samtools/htslib/releases
+local_Hypre_version =        '3.1.0'         # https://github.com/hypre-space/hypre/tags
 
 local_Imlib2_version =       '1.12.6'        # https://sourceforge.net/projects/enlightenment/files/imlib2-src/
 
@@ -72,6 +73,8 @@ local_Scalasca_version =     '2.6.1'         # https://www.scalasca.org/scalasca
 local_ScoreP_version =       '8.4'           # https://www.vi-hps.org/projects/score-p/
 local_spglib_version =       '2.7.0'         # https://github.com/spglib/spglib/tags
 local_STAR_version =         '2.7.11b'       # https://github.com/alexdobin/STAR/releases
+local_SuperLU_version =      '7.0.1'         # https://github.com/xiaoyeli/superlu/releases
+local_SuperLU_DIST_version = '9.2.1'         # https://github.com/xiaoyeli/superlu_dist/releases
 local_SWIG_version =         '4.4.1'         # https://www.swig.org/
 local_SZ_version =           '2.1.12.5'      # https://github.com/szcompressor/SZ/releases
 local_SZ3_version =          '3.3.2'         # https://github.com/szcompressor/SZ3/releases

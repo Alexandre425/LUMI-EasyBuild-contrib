@@ -105,8 +105,8 @@ easyconfigs:
 #
 # MUMPS
 #
-  - MUMPS-5.9.1-cpeGNU-26.03-static-OpenMP.eb
-  - MUMPS-5.9.1-cpeGNU-26.03-static-noOpenMP.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-OpenMP-METIS-idx32-fp64.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-noOpenMP-METIS-idx32-fp64.eb
 #
 # NCO
 #
@@ -136,3 +136,16 @@ easyconfigs:
 # OpenBLAS
 #
   - OpenBLAS-0.3.32-cpeGNU-26.03.eb
+#
+# PETSc with Hypre.
+#
+  - MUMPS-5.9.1-cpeGNU-26.03-OpenMP-METIS-idx32-fp32.eb
+  - Hypre-3.1.0-cpeGNU-26.03.eb
+  - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+  - SuperLU_DIST-9.2.1-cpeGNU-26.03-OpenMP-CPU-ParMETIS-idx32-fp32.eb
+  - PETSc-3.25.4-cpeGNU-26.03-OpenMP-CPU.eb
+#
+# SuperLU
+#
+  - SuperLU-7.0.1-cpeGNU-26.03-ParMETIS-idx32-fp32.eb
+  - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
