@@ -1,15 +1,32 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
+# Developed for the EPICURE project (https://epicure-hpc.eu/)
+#
+#DOC GPU version. Performance is known to be relatively poor on AMD GPUs
+#DOC compared to NVIDIA GPUs. The code is not yet as well optimised as
+#DOC it is for NVIDIA GPUs.
+easyblock= 'ConfigureMake'
 
-name = 'URANOS'
-version = '20260515'
-versionsuffix = "-rocm"
+name =         'URANOS'
+version =      '20260515'
+versionsuffix = '-rocm'
 
 homepage = 'https://github.com/uranos-gpu/uranos-gpu'
-description = """URANOS is a GPU-accelerated Navier-Stokes solver for compressible flows with direct
- relevance to aerospace propulsion systems and aerothermodynamics."""
+
+whatis = [
+    "Description: URANOS is a Navier-Stokes solver for compressible flows with optional GPU acceleration."
+]
+
+description = """
+URANOS is a GPU-accelerated Navier-Stokes solver for compressible flows with direct
+relevance to aerospace propulsion systems and aerothermodynamics.
+
+This module contains the GPU-accelerated version.
+
+Performance is known to be relatively poor on AMD GPUs. The code is not as well
+optimised as it is for NVIDIA GPUs.
+"""
 
 toolchain = {'name': 'cpeCray', 'version': '25.03'}
-moduleclass = 'geo'
 
 sources = [{
   'filename': 'URANOS-git',
@@ -20,26 +37,37 @@ sources = [{
     'keep_git_dir': False,
   },
 }]
-
 patches = ['URANOS-Cray.patch']
 
+builddependencies = [
+    ('buildtools', '%(toolchain_version)s', '', True),
+]
 
 dependencies = [
     ('rocm', EXTERNAL_MODULE),
     ('hipfort', '0.4-0'),
 ]
 
+skipsteps = ['configure']
+
 maxparallel = 1
+
 buildopts = 'comp=cray mode=gpu'
-easyblock= 'ConfigureMake'
-install_cmd='cp -r * %(installdir)s'
-skipsteps=['configure']
-sanity_check_paths= {
+
+install_cmd = 'cp -r * %(installdir)s'
+
+postinstallcmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s',
+    'cp LICENSE CITATION.cff %(installdir)s/share/licenses/%(name)s',   
+]
+
+sanity_check_paths = {
   'files': [ "Uranos.exe" ],
-  'dirs': [],
+  'dirs':  [],
 }
 
 modextrapaths = {
   'PATH': '%(installdir)s',
 }
 
+moduleclass = 'geo'
