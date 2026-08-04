@@ -1,0 +1,15 @@
+--- ambertools26_src_old/cmake/LibraryTracking.cmake	2026-05-13 10:48:02.000000000 +0300
++++ ambertools26_src/cmake/LibraryTracking.cmake	2026-05-13 10:41:43.000000000 +0300
+@@ -189,9 +189,9 @@
+ 
+ 	cmake_parse_arguments(IMP_LIBS "" "" "LIBRARIES;INCLUDES" ${ARGN})
+ 	
+-	if("${IMP_LIBS_LIBRARIES}" STREQUAL "")
+-		message(FATAL_ERROR "Incorrect usage.  At least one LIBRARY should be provided.")
+-	endif()
++	#if("${IMP_LIBS_LIBRARIES}" STREQUAL "")
++	#	message(FATAL_ERROR "Incorrect usage.  At least one LIBRARY should be provided.")
++	#endif()
+ 	
+ 	if(NOT "${IMP_LIBS_UNPARSED_ARGUMENTS}" STREQUAL "")
+ 		message(FATAL_ERROR "Incorrect usage.  Extra arguments provided.")

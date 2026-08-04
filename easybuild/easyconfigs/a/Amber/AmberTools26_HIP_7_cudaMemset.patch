@@ -1,0 +1,12 @@
+diff --git a/AmberTools/src/cpptraj/src/HipDefinitions.h b/AmberTools/src/cpptraj/src/HipDefinitions.h
+index edb7b13..b185472 100644
+--- a/AmberTools/src/cpptraj/src/HipDefinitions.h
++++ b/AmberTools/src/cpptraj/src/HipDefinitions.h
+@@ -17,6 +17,7 @@
+ #define cudaLaunchKernelGGL hipLaunchKernelGGL
+ #define cudaMalloc hipMalloc
+ #define cudaMemcpy hipMemcpy
++#define cudaMemset hipMemset
+ #define cudaMemcpyDeviceToHost hipMemcpyDeviceToHost
+ #define cudaMemcpyHostToDevice hipMemcpyHostToDevice
+ #define cudaSuccess hipSuccess

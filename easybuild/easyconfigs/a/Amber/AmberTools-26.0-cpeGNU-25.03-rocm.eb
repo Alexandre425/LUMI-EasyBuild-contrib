@@ -1,0 +1,137 @@
+# Version updated by Matteo Murdaca for LUST
+#
+#DOC Amber with the matching version of AmberTools, and without Python support.
+easyblock = 'CMakeMake'
+
+local_AmberTools_version = '26'
+
+local_arpack_ng_version  =   '3.9.1'         # https://github.com/opencollab/arpack-ng/tags
+local_Boost_version =        '1.88.0'        # https://www.boost.org/
+local_Perl_version =         '5.40.0'        # https://www.perl.org/get.html
+local_zlib_version =         '1.3.1'         # https://zlib.net/
+local_bzip2_version =        '1.0.8'         # http://www.bzip.org/downloads.html
+
+# Patch levels from https://ambermd.org/AmberPatches.php and https://ambermd.org/ATPatches.php
+local_patchlevels = (0, 0)  # (AmberTools, Amber)
+
+name = 'AmberTools'
+version = '%s.%s.%s' % (local_AmberTools_version, local_patchlevels[0], local_patchlevels[1])
+versionsuffix = '-rocm'
+
+homepage = 'https://ambermd.org/amber.html'
+
+description = """
+Amber (originally Assisted Model Building with Energy Refinement) is software
+for performing molecular dynamics and structure prediction. This module provides
+the the analysis tools; the pmemd MD engine (HIP/GTI build for AMD GPUs) lives in the
+companion AmberTools module.
+"""
+
+toolchain = {'name': 'cpeGNU', 'version': '25.03'}
+toolchainopts = {'usempi': True, 'openmp': True}
+
+sources = [
+    {'filename': 'ambertools%s.tar.bz2' % local_AmberTools_version, 'alt_location': 'AmberTools'},
+]
+
+patches = [
+    'AmberTools26_cpptraj_cmake.patch',
+    'AmberTools26_cpptraj.patch',
+    'AmberTools26_HIP.patch',
+    'AmberTools26_HIP_2.patch',
+    'AmberTools26_HIP_3.patch',
+    'AmberTools26_HIP_4.patch',
+    'AmberTools26_HIP_5.patch',
+    'AmberTools26_HIP_6.patch',
+    'AmberTools26_HIP_7_cudaMemset.patch',
+    'AmberTools26_nth_cpptraj.patch',
+    'AmberTools26_fix_missing_MPI_LIBRARY_error.patch',
+]
+
+
+checksums = [
+    '5d46eef3c2bb7d5bf9e8c0c38add34406ea67e3f0e4097ac9d11d8a544538c9c',  # ambertools26.tar.bz2
+    'b596fa67f85b0314f064d3119533a63135b32d999e81737c3fa61d1fc4ec8467',  # AmberTools26_cpptraj_cmake.patch
+    '685cb2809b986a083ecc22726c1c17b3d0a7b53b4373f432725a0b77f8383302',  # AmberTools26_cpptraj.patch
+    'aa7a7cdf3038f869b8fddd65ba1998a0bbb4d437e8e7de025a746581b732c2e1',  # AmberTools26_HIP.patch
+    '69a7829cd63a38449c7c48eb046a05f27dc98731b5c07c4aba25844ac509877c',  # AmberTools26_HIP_2.patch
+    '7656ea4ea1e72b843ff95e1e37c4f5eec793d76366ed22591809dabea8540e69',  # AmberTools26_HIP_3.patch
+    '81a61d5a53f8bddd28f4d4dc6b41a56e523273421d889c579212c6aca9337413',  # AmberTools26_HIP_4.patch
+    'ac04bb27e125e8efa1fd30ac379ca461639c3c97c8b3df5d9d7a3aac08021c2e',  # AmberTools26_HIP_5.patch
+    'd5973040d8178d722629762d49656d47a537216605986b6b7f7e6d52e7cd5b3e',  # AmberTools26_HIP_6.patch
+    '7d1b667853b366db0a8858b198a619777193625274c5625db80f992c93959a9d',  # AmberTools26_HIP_7_cudaMemset.patch
+    '18f848df67f46926b84159ed6f8b218c178ff4391c3d1b8a0d9fe342ec8aff9b',  # AmberTools26_nth_cpptraj.patch
+    'eb72e26c860e607c1f7420e9b04ade232e0bf78d08c7da3f6d081ad58cddb01b',  # AmberTools26_fix_missing_MPI_LIBRARY_error.patch
+]
+
+builddependencies = [
+    ('buildtools', '%(toolchain_version)s', '', True),
+    ('Boost',      local_Boost_version),
+]
+
+dependencies = [
+    ('cray-python',              EXTERNAL_MODULE),
+    ('cray-fftw',                EXTERNAL_MODULE),
+    ('cray-hdf5-parallel',       EXTERNAL_MODULE),
+    ('cray-parallel-netcdf',     EXTERNAL_MODULE),
+    ('cray-netcdf-hdf5parallel', EXTERNAL_MODULE),
+    ('rocm',                     EXTERNAL_MODULE),
+    ('zlib',                     local_zlib_version),
+    ('bzip2',                    local_bzip2_version),
+    ('Perl',                     local_Perl_version),
+    ('arpack-ng',                local_arpack_ng_version, '-OpenMP'),
+]
+
+configopts = ' '.join([
+    '-DCOMPILER=CRAY',
+    '-DCMAKE_CXX_FLAGS="-O3 -ftree-vectorize -fno-math-errno -fopenmp"',
+    '-DCMAKE_C_FLAGS="-O3 -ftree-vectorize -fno-math-errno -fopenmp"',
+    '-DCMAKE_Fortran_FLAGS="-O3 -ftree-vectorize -fno-math-errno -fopenmp"',
+    '-DBOOST_ROOT=$EBROOTBOOST',
+    '-DBoost_NO_SYSTEM_PATHS=ON',
+    '-DINSTALL_TESTS=ON',
+    '-DMPI=ON',
+    '-DOPENMP=ON',
+    '-DUSE_FFT=ON',
+    '-DBUILD_PYTHON=OFF',
+    '-DCHECK_UPDATES=OFF',
+    '-DAPPLY_UPDATES=OFF',
+    '-DDOWNLOAD_MINICONDA=OFF',
+    '-DCMAKE_BUILD_TYPE=Release',
+    '-DCMAKE_CXX_STANDARD="17"',
+    '-DHIP=ON',
+    '-DGPU_TARGETS="gfx90a"',
+    '-DAMDGPU_TARGETS="gfx90a"',
+    '-DCMAKE_HIP_ARCHITECTURES="gfx90a"',
+    '-DHIP_WARP64=ON',
+    '-DCUDA_NVCC_FLAGS="--offload-arch=gfx90a -std=c++17 -I$CRAY_MPICH_DIR/include -D__HIP_PLATFORM_HCC__"',
+    '-DHIPCUDA_EMULATE_VERSION=11.5',
+    '-DGTI=ON',
+    '-DVKFFT=ON',
+    '-DHIP_RDC=ON',
+    '-DHIP_TOOLKIT_ROOT_DIR=$ROCM_PATH',
+    '-DFORCE_EXTERNAL_LIBS="netcdf;fftw;blas;lapack;pnetcdf;arpack"',
+    '-DTRUST_SYSTEM_LIBS=ON',
+    '-DBLAS_LIBRARIES=$CRAY_LIBSCI_PREFIX_DIR/lib/libsci_gnu_mp.so',
+    '-DLAPACK_LIBRARIES=$CRAY_LIBSCI_PREFIX_DIR/lib/libsci_gnu_mp.so',
+    '-DNetCDF_INCLUDES=$CRAY_NETCDF_HDF5PARALLEL_PREFIX/include',
+    '-DNetCDF_INCLUDES_F90=$CRAY_NETCDF_HDF5PARALLEL_PREFIX/include',
+    '-DNetCDF_LIBRARIES_F90=$CRAY_NETCDF_HDF5PARALLEL_PREFIX/lib/libnetcdff.so',
+    '-DNetCDF_LIBRARIES_F77=$CRAY_NETCDF_HDF5PARALLEL_PREFIX/lib/libnetcdff.so',
+    '-DNetCDF_LIBRARIES_C=$CRAY_NETCDF_HDF5PARALLEL_PREFIX/lib/libnetcdf.so',
+    '-DPnetCDF_LIBRARY=$CRAY_PARALLEL_NETCDF_PREFIX/lib/libpnetcdf.so',
+    '-DPnetCDF_INCLUDE_DIR=$CRAY_PARALLEL_NETCDF_PREFIX/include',
+    '-DARPACK_LIBRARY=$EBROOTARPACKMINNG/lib/libarpack.so',
+    '-DMVAPICH2GDR_GPU_DIRECT_COMM=ON',
+])
+
+sanity_check_paths = {
+    'files': ['bin/gem.pmemd.MPI'],
+    'dirs': [''],
+}
+
+modextravars = {
+    'AMBERHOME' : '%(installdir)s',
+}
+
+moduleclass = 'chem'

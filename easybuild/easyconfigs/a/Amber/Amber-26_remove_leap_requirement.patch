@@ -1,0 +1,11 @@
+--- pmemd26_src/cmake/WhichTools.cmake~	2026-04-22 19:36:22.000000000 +0300
++++ pmemd26_src/cmake/WhichTools.cmake	2026-05-13 15:16:23.000000000 +0300
+@@ -90,7 +90,7 @@
+ nfe-umbrella-slice
+ 
+ #   leap
+-leap
++# leap
+ 
+ #   python programs
+ parmed

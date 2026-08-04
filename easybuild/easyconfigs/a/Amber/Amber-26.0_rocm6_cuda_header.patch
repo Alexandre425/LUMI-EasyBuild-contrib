@@ -1,0 +1,11 @@
+--- src/pmemd/src/cuda/pba3DHost.cu.orig	2026-06-25 15:46:09.000000000 +0300
++++ src/pmemd/src/cuda/pba3DHost.cu	2026-06-25 15:46:18.000000000 +0300
+@@ -37,7 +37,7 @@
+ 
+ */
+ 
+-#include <cuda_runtime.h>
++#include <hip/hip_runtime.h>
+ #include <stdio.h>
+ #include <fstream>
+ 
