@@ -1,5 +1,5 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
-# Developed for the EPICURE project (https://epicure-hpc.eu/)
+# Developed by the EPICURE project (https://epicure-hpc.eu/)
 easyblock= 'ConfigureMake'
 
 name = 'URANOS'

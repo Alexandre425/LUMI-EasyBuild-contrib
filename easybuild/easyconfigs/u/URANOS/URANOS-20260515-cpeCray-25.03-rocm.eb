@@ -1,5 +1,5 @@
 # Adapted for LUMI by Jakob Struye <jakob.struye@uantwerpen.be>
-# Developed for the EPICURE project (https://epicure-hpc.eu/)
+# Developed by the EPICURE project (https://epicure-hpc.eu/)
 #
 #DOC GPU version. Performance is known to be relatively poor on AMD GPUs
 #DOC compared to NVIDIA GPUs. The code is not yet as well optimised as
