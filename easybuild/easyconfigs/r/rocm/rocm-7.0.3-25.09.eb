@@ -4,11 +4,16 @@
 #DOC stack for it unless there would be a Cray PE for it at some time. It is 
 #DOC likely only useful for single GPU runs on LUMI.
 #DOC
-#DOC Installation in a LUMI software stack in `partition/G`,
+#DOC Installation recommended in `LUMI/25.09 partition/G`,
 #DOC but don't use it with any other software in that stack as it may not work.
+#DOC There is a similar module pre-installed in the ccpe-26.03 containers which
+#DOC has a matching MPI until 26.03 gets onto the system. The versionsuffix `-25.09`
+#DOC is used to distinguish from the module that will appear in 26.03.
 easyblock = 'EB_rocmrpms'
-name = 'rocm'
-version = '7.0.3'
+
+name =          'rocm'
+version =       '7.0.3'
+versionsuffix = '-25.09'
 
 homepage = 'https://www.amd.com/en/developer/resources/rocm-hub.html'
 
@@ -301,21 +306,21 @@ pushd %(installdir)s/lib
 
 find . -maxdepth 1 -type f -name "*.so*" -exec sh -c '
   if file $0 | grep -q "dynamically"; then
-    patchelf --force-rpath --set-rpath "\$ORIGIN:\$ORIGIN/llvm/lib" $0
-  fi' {} \;
+    patchelf --force-rpath --set-rpath "\\$ORIGIN:\\$ORIGIN/llvm/lib" $0
+  fi' {} \\;
 
 for subdir in roctracer migraphx; do
   pushd $subdir
   find . -maxdepth 1 -type f -name "*.so*" -exec sh -c '
     if file $0 | grep -q "dynamically"; then
-      patchelf --force-rpath --set-rpath "\$ORIGIN:\$ORIGIN/../:\$ORIGIN/../llvm/lib" $0
-    fi' {} \;
+      patchelf --force-rpath --set-rpath "\\$ORIGIN:\\$ORIGIN/../:\\$ORIGIN/../llvm/lib" $0
+    fi' {} \\;
   popd
 done
 
 for lib in "*migraphx*.so*"; do
   if file $lib | grep -q "dynamically"; then
-    patchelf --force-rpath --set-rpath "\$ORIGIN:\$ORIGIN/llvm/lib:\$ORIGIN/migraphx/lib" $lib
+    patchelf --force-rpath --set-rpath "\\$ORIGIN:\\$ORIGIN/llvm/lib:\\$ORIGIN/migraphx/lib" $lib
   fi
 done
 
@@ -329,7 +334,7 @@ sed -i "s/enable-new-dtags/disable-new-dtags/" ./llvm/bin/rocm.cfg
 popd
 
 pushd %(installdir)s
-find . -type f -perm /111 -exec chmod go+rx '{}' \;
+find . -type f -perm /111 -exec chmod go+rx '{}' \\;
 popd
 """
 
@@ -371,7 +376,10 @@ if mode() == "load" then
                  'them instead of just prepending LD_LIBRARY_PATH.\\n' )
     LmodWarning( 'This package is not compatible with the stack on lumi. It is known to be not compatible with MPI.\\n'..
                  'The GTL is also not working, as it requires libraries from rocm 6. The module is provided as\\n'..
-                 'experimental for advanced users who understand the restrictions of this module.')
+                 'experimental for advanced users who understand the restrictions of this module. The earliest\\n' ..
+                 'version of the Cray PE that supports ROCm 7 is 26.03, which we provide through a container\\n' ..
+                 'until it becomes available in the regular way on LUMI, but for those we have a version of\\n\\n' ..
+                 'this module pre-installed.\\n' )
 end
 """
 

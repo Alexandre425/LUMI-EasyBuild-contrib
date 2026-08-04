@@ -64,3 +64,8 @@
 
 -   Trivial port of the 1.19 EasyConfig for 24.03
 
+
+### Version 1.24 for 26.03
+
+-   Trivial port of the 1.22 EasyConfig for 25.03, but switched to EB6-compatible
+    parameters.

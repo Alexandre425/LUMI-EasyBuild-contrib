@@ -33,5 +33,12 @@
 
 ### Version 1.0.21 from CPE 25.09 on
 
--   Trivial version bump of the 1.0.20 EasyConfig for 25.03.
+-   Trivial version bump of the 1.0.20 EasyConfig for 25.03,
+    but switched to EasyConfig parameters compatible with EB 6.
 
+
+### Version 1.0.22 from CPE 26.03 on
+
+-   Trivial version bump of the 1.0.21 EasyConfig for 25.09.
+
+-   Added improved sanity checks and a cpeCray version.

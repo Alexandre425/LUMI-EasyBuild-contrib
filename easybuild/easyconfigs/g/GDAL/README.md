@@ -49,3 +49,8 @@ to sometimes fail so the build process has to be entirely sequential and can tak
 ### GDAL 3.12.0 for 25.03
 
 -   The EasyConfigs are a straightforward port of those for 3.9.0 in 24.03.
+
+
+### GDAL 3.13.2 for 26.03
+
+-   The EasyConfigs are a straightforward port of those for 3.12.0 in 25.03.

@@ -16,3 +16,6 @@
     sanity checks.
 
 -   The one binary has no options to easily test.
+
+-   For 26.03, we switched to new EasyConfig parameters for EB 6 and changed the
+    sanity checks.

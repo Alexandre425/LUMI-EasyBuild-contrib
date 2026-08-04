@@ -1,0 +1,71 @@
+easyblock = 'ConfigureMake'
+
+local_cURL_version =         '8.21.0'        # https://curl.haxx.se/download/ - Newer than 2026.1?
+local_file_version =         '5.48'          # ftp://ftp.astron.com/pub/file/ (not yet in EB 2025a when checking)
+
+local_libexif_version =      '0.6.26'        # https://github.com/libexif/libexif/releases
+local_Imlib2_version =       '1.12.6'        # https://sourceforge.net/projects/enlightenment/files/imlib2-src/
+
+local_feh_version =          '3.12.2'        # https://github.com/derf/feh/tags
+
+name =    'feh'
+version = local_feh_version
+
+homepage = 'https://feh.finalrewind.org/'
+
+whatis = [
+    'Description: feh is a simple X11 image viewer aimed at console users'
+]
+
+description = """
+feh is an X11 image viewer aimed mostly at console users.
+Unlike most other viewers, it does not have a fancy GUI, but simply displays images.
+It is controlled via command line arguments and configurable key/mouse actions.
+"""
+
+doc_urls = [
+    'Man page for the feh command',
+]
+
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+toolchain_opts = {'pic': True}
+
+source_urls = ['http://feh.finalrewind.org']
+sources =     [SOURCE_TAR_BZ2]
+checksums =   ['7ce358b18a7f37bcc97a09b4efd89fdadd54cd8e7032db345f61e66dd04b1c3f']
+
+build_deps = [
+    ('buildtools',        '%(toolchain_version)s', '', SYSTEM),
+    ('craype-accel-none', EXTERNAL_MODULE),
+]
+
+deps = [
+    ('cURL',    local_cURL_version),
+    ('file',    local_file_version),
+    ('libexif', local_libexif_version),
+    ('Imlib2',  local_Imlib2_version),
+    ('X11',     '%(toolchain_version)s'),
+]
+
+skip_steps = ['configure']
+
+pre_build_opts = 'module unload cray-libsci cray-mpich xpmem rocm && '
+
+build_opts = 'PREFIX=%(installdir)s curl=1 exif=1 magic=1'
+install_opts = build_opts
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s',
+    'cd ../%(namelower)s-%(version)s && cp AUTHORS COPYING ChangeLog README.md %(installdir)s/share/licenses/%(name)s',
+]
+
+sanity_check_paths = {
+    'files': ['bin/feh', 'share/licenses/feh/COPYING'],
+    'dirs':  ['share/man/man1']
+}
+
+sanity_check_cmds = [
+    'feh -h',
+]
+
+env_mod_category = 'vis'

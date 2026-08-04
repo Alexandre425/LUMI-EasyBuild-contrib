@@ -31,4 +31,15 @@
 
 -   The EasyConfig is a straightforward update of the 1.12.3 one for 24.03,
     but we made it a bit more conforming to our standards.
-    
+
+
+### Version 1.12.6 in 26.03
+
+-   Started as a straightforward update of 1.12.5 in 25.03.
+
+-   Switched to EB6-compatible parameters and added more sanity checks.
+
+-   After inspecting the `configure` output, it turned out that we could add several
+    additional image formats without having to develop new dependencies that were not
+    already in the central stack.
+

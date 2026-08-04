@@ -48,3 +48,8 @@
 ### Version 0.18 for CPE 25.03
 
 -   Trivial port of the EasyConfig for 0.17 in 24.03.
+
+
+### Version 0.19 for CPE 26.03
+
+-   Trivial port of the EasyConfig for 0.18 in 25.03, but switched to EB6-compatible parameters.

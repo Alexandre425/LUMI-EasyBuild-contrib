@@ -35,4 +35,6 @@
 -   Trivial port of the EasyConfig for 1.36 for 23.09
     
 -   25.03: Added license information to the installation
-    
+
+-   26.03: Made some changes to the sanity checks, used `craype-accel-none`
+    and switched to EB 6-compatible parameters.

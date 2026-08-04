@@ -28,3 +28,8 @@
 ### Version 4.3.5 from CPE 23.09 on
 
 -   Trivial version bump from 4.3.4.
+
+-   For 26.03 we added a cpeCray version and also made better sanity checks.
+
+    Something strange is going on with the cpeCray version though as it links libraries
+    that we do not expect to be linked.

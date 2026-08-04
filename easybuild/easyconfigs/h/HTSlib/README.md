@@ -71,3 +71,12 @@
 ### 1.22.1 for 25.03
 
 -   Trivial port of the 1.19.1 EasyConfig for 24.03
+
+### 1.24 for 26.03
+
+-   Trivial port of the 1.22.1 EasyConfig for 25.03
+
+-   Switched to EB 6-compatible parameters.
+
+-   Improved the sanity checks.
+

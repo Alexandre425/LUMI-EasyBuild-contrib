@@ -20,3 +20,10 @@
 
 -   EasyConfig derived from the EasyBuilders one, but we also store the license
     information in the installation directories.
+
+
+### Version 0.6.26 for 26.03
+
+-   EasyConfig is a direct port of the 0.6.25 one, but we switched to EB6-compatible
+    parameters.
+

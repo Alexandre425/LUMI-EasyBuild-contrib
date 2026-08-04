@@ -1,6 +1,8 @@
 # ROCm
 
-### 6.1.3 and 7.0.3
+## EasyBuild
+
+### 6.1.3 and 7.0.3-25.09
 
 -   As previous ROCm Easyconfigs, but with support for the address sanitizer and 
     debug symbols also. However, the libraries for the address sanitizer and 

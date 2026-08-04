@@ -26,3 +26,12 @@
 -   The EasyConfig is derived from the EasyBuilders one and we haven't figured
     out yet how to adapt patches from earlier versions to also build a shared
     library version.
+
+
+### 5.9.1 for cpeGNU 26.03
+
+-   The EasyConfig is a direct port of the 5.8.1 one for cpeGNU 25.03, but we 
+    switched to EB6-compatible parameters.
+
+-   The new `-idx32-fp64` version of METIS is the one that corresponds to the
+    old one without versionsuffix.

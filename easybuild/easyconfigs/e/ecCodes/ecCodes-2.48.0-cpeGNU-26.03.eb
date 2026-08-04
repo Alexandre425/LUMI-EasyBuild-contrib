@@ -1,0 +1,93 @@
+# Contributed by Sebastan Keller and Luca Marsella (CSCS)
+# Modified for use on LUMI by Kurt Lust (kurt.lust@uantwerpen.be)
+# for the LUMI consortium.
+easyblock = 'CMakeMake'
+
+local_JasPer_version =       '4.2.9'         # https://github.com/jasper-software/jasper/releases
+local_libaec_version =       '1.1.7'         # https://github.com/Deutsches-Klimarechenzentrum/libaec/releases
+local_libjpegturbo_version = '3.2.0'         # https://github.com/libjpeg-turbo/libjpeg-turbo/releases
+local_OpenJPEG_version =     '2.5.4'         # https://github.com/uclouvain/openjpeg/releases
+local_libpng_version =       '1.6.58'        # http://www.libpng.org/pub/png/libpng.html (Not yet in EB 2025a when checking)
+
+local_ecCodes_version =      '2.48.0'        # https://confluence.ecmwf.int/display/ECC/Releases
+
+name =    'ecCodes'
+version = local_ecCodes_version
+
+homepage = 'https://confluence.ecmwf.int/display/ECC/ecCodes+Home'
+
+whatis = [
+    'Description: ecCodes is a ECMWF package providing an API for decoding and encoding messages'
+]
+
+description = """
+ecCodes is a package developed by ECMWF which provides an application
+programming interface and  a set of tools for decoding and encoding messages
+in the following formats: WMO FM-92 GRIB edition 1 and edition 2, WMO FM-94 BUFR
+edition 3 and edition 4, WMO GTS abbreviated header (only decoding).
+
+The Python interfaces are not included in this module as since ecCodes 2.13.0,
+the Python 3 interface is distributed separately on PyPi.
+"""
+
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+toolchain_opts = {'openmp': True, 'verbose': False}
+
+# https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.23.0-Source.tar.gz?api=v2
+source_urls = ['https://confluence.ecmwf.int/download/attachments/45757960/']
+sources =     ['%(namelower)s-%(version)s-Source.tar.gz']
+checksums =   ['62e8fa5ca137d138189a5fdd6d5b2205c89cc26338e3f4286aba3d89b49c9f9a']
+
+build_deps = [ # Create a reproducible build environment.
+    ('buildtools',         '%(toolchain_version)s',   '', True), # For CMake among others.
+    ('craype-network-none', EXTERNAL_MODULE), # ecCodes does not use MPI
+    ('craype-accel-none',   EXTERNAL_MODULE),
+]
+
+deps = [
+    ('cray-hdf5',     EXTERNAL_MODULE),
+    ('cray-netcdf',   EXTERNAL_MODULE),
+    ('JasPer',        local_JasPer_version),
+    ('libaec',        local_libaec_version),   # Instead of Szip
+    ('libjpeg-turbo', local_libjpegturbo_version),
+    ('libpng',        local_libpng_version),   # Also pulls in zlib
+    ('OpenJPEG',      local_OpenJPEG_version),
+]
+
+configure_opts = ' '.join([
+    '-DCMAKE_INSTALL_LIBDIR=lib',
+    '-DENABLE_ECCODES_OMP_THREADS=ON',
+    '-DENABLE_AEC=ON',
+    '-DENABLE_JPG=ON',
+    '-DENABLE_JPG_JASPER=ON',
+    '-DENABLE_PNG=ON',
+    '-DENABLE_PYTHON=OFF',
+    '-DENABLE_MEMFS=OFF', # Turning this on requires Python, though it does seem to work with the system Python.
+])
+
+pre_configure_opts = 'module unload cray-libsci rocm && '
+pre_build_opts = pre_configure_opts 
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s && ' +
+    'cp ../%(namelower)s-%(version)s-Source/LICENSE %(installdir)s/share/licenses/%(name)s && ' +
+    'chmod 664 %(installdir)s/share/licenses/%(name)s/LICENSE'
+]
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in ['bufr_copy', 'bufr_dump', 'bufr_filter', 'bufr_ls',
+                                     'codes_count', 'codes_info', 'codes_split_file',
+                                     'grib_copy', 'grib_dump', 'grib_filter', 'grib_ls']] +
+             [f'lib/libeccodes.{SHLIB_EXT}', f'lib/libeccodes_f90.{SHLIB_EXT}'],
+    'dirs':  ['lib/cmake/eccodes'],
+}
+
+sanity_check_cmds = [
+    'pkg-config --validate eccodes',
+    'pkg-config --validate eccodes_f90',
+    f'pkg-config --exact-version={version} eccodes',
+    f'pkg-config --exact-version={version} eccodes_f90',
+    'codes_info',    
+]
+
+env_mod_category = 'data'

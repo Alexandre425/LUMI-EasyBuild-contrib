@@ -5,7 +5,7 @@ This is a module for those packages that would still use the old HDF4 format.
 Its main use seems to be as a dependency for GDAL. One should not develop new code 
 using it.
 
--   [HDF(4) web site](https://support.hdfgroup.org/products/hdf4/)
+-   [HDF(4) web site](https://www.hdfgroup.org/solutions/hdf4/)
     
     
 ## EasyBuild
@@ -23,4 +23,6 @@ using it.
 ### Version 4.2.16-2 for cpeGNU 23.09 and later
 
 -   Trivial port of the EasyConfig for 4.2.15
+
+-   Switched to EB6-compatible parameters in 26.03.
 

@@ -1,0 +1,138 @@
+easyconfigs:
+#
+# ADIOS2
+#
+  - SZ-2.1.12.5-cpeGNU-26.03-hdf5.eb
+  - SZ-2.1.12.5-cpeGNU-26.03-hdf5-parallel.eb
+  - SZ-2.1.12.5-cpeCray-26.03-hdf5.eb
+  - SZ-2.1.12.5-cpeCray-26.03-hdf5-parallel.eb
+  - SZ3-3.3.2-cpeGNU-26.03-hdf5.eb
+  - SZ3-3.3.2-cpeGNU-26.03-hdf5-parallel.eb
+  - Blosc2-2.23.1-cpeGNU-26.03.eb
+  - Blosc2-2.23.1-cpeCray-26.03.eb
+  - zfp-1.0.1-cpeGNU-26.03.eb
+  - zfp-1.0.1-cpeCray-26.03.eb
+  - OpenPGM-5.2.122-cpeGNU-26.03.eb
+  - OpenPGM-5.2.122-cpeCray-26.03.eb
+  - libsodium-1.0.22-cpeGNU-26.03.eb
+  - libsodium-1.0.22-cpeCray-26.03.eb
+  - ZeroMQ-4.3.5-cpeGNU-26.03.eb
+  - ZeroMQ-4.3.5-cpeCray-26.03.eb
+  - yaml-cpp-0.9.0-cpeGNU-26.03.eb
+  - yaml-cpp-0.9.0-cpeCray-26.03.eb
+  - ADIOS2-2.12.1-cpeGNU-26.03-noMPI-hdf5.eb
+  - ADIOS2-2.12.1-cpeGNU-26.03-MPI-hdf5-parallel.eb
+  - ADIOS2-2.12.1-cpeCray-26.03-noMPI-hdf5.eb
+  - ADIOS2-2.12.1-cpeCray-26.03-MPI-hdf5-parallel.eb
+#
+# amd-aocl (AOCL)
+#
+# TODO
+#
+# aria2
+#
+  - CppUnit-1.15.1-cpeGNU-26.03.eb
+  - CppUnit-1.15.1-cpeCray-26.03.eb
+  #- CppUnit-1.15.1-cpeAOCC-26.03.eb
+  - c-ares-1.34.8-cpeGNU-26.03.eb
+  - c-ares-1.34.8-cpeCray-26.03.eb
+  #- c-ares-1.34.8-cpeAOCC-26.03.eb
+  - aria2-1.37.0-cpeGNU-26.03.eb
+  - aria2-1.37.0-cpeCray-26.03.eb
+  #- aria2-1.37.0-cpeAOCC-26.03.eb
+#
+# BCFtools and related bio-informatics tools
+#
+  - HTSlib-1.24-cpeGNU-26.03.eb
+  - BCFtools-1.24-cpeGNU-26.03.eb
+  - SAMtools-1.24-cpeGNU-26.03.eb
+  - STAR-2.7.11b-cpeGNU-26.03.eb
+  - VCFtools-0.1.17-cpeGNU-26.03.eb
+#
+# Blosc2 3.x, originally for ADIOS2 until we found out ADIOS2 needs version 2.x
+#
+  - zfp-1.0.1-cpeGNU-26.03.eb
+  - zfp-1.0.1-cpeCray-26.03.eb
+  - Blosc2-3.2.3-cpeGNU-26.03.eb
+  - Blosc2-3.2.3-cpeCray-26.03.eb
+#
+# CDO
+#
+  - json-c-0.19-cpeGNU-26.03.eb
+  - json-c-0.19-cpeCray-26.03.eb
+  #- json-c-0.19-cpeAOCC-26.03.eb
+  - CMOR-3.15.2-cpeGNU-26.03.eb
+  - CMOR-3.15.2-cpeCray-26.03.eb
+  - ecCodes-2.48.0-cpeGNU-26.03.eb
+  - ecCodes-2.48.0-cpeCray-26.03.eb
+  - CDO-2.6.3-cpeGNU-26.03.eb
+  - CDO-2.6.3-cpeCray-26.03.eb
+#
+# CP2K
+# Skipped for now
+#
+#
+# Cython
+#
+  - Cython-3.2.9-cpeGNU-26.03.eb
+# On LUMI-G also used for CuPy.
+#
+# feh (image viewer)
+#
+  - libexif-0.6.26-cpeGNU-26.03.eb
+  - Imlib2-1.12.6-cpeGNU-26.03.eb
+  - feh-3.12.2-cpeGNU-26.03.eb
+#
+# fpocket
+#
+  - fpocket-4.2.3-cpeGNU-26.03.eb
+#
+# GDAL
+#
+  - HDF-4.2.16-2-cpeGNU-26.03.eb
+  - GEOS-3.14.1-cpeGNU-26.03.eb
+  - Xerces-C++-3.3.0-cpeGNU-26.03.eb
+  - SWIG-4.4.1-cpeGNU-26.03.eb
+  - GDAL-3.13.2-cpeGNU-26.03-noPython.eb
+  - GDAL-3.13.2-cpeGNU-26.03-cray-python-3.12.12.eb
+#
+# mpiFileUtils
+#
+  - lustre-includes-2.15.5.eb # Though we may just want this in common.
+  - mpiFileUtils-0.12-cpeGNU-26.03.eb
+  - mpiFileUtils-0.12-cpeCray-26.03.eb
+  #- mpiFileUtils-0.12-cpeAOCC-26.03.eb
+#
+# MUMPS
+#
+  - MUMPS-5.9.1-cpeGNU-26.03-static-OpenMP.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-static-noOpenMP.eb
+#
+# NCO
+#
+  - CppUnit-1.15.1-cpeGNU-26.03.eb
+  - CppUnit-1.15.1-cpeCray-26.03.eb
+  #- CppUnit-1.15.1-cpeAOCC-26.03.eb
+  - libdap-3.21.1-cpeGNU-26.03.eb
+  - libdap-3.21.1-cpeCray-26.03.eb
+# libdap was used in NCO but have trouble with it in 25.03 and 26.03
+  - Java-25.0.4+7.eb
+  - Java-25.eb
+  - ANTLR-2.7.7-cpeGNU-26.03-cray-python3.12.eb
+  - ANTLR-2.7.7-cpeCray-26.03-cray-python3.12.eb
+  - ESMF-8.9.1-cpeGNU-26.03-noMPI.eb
+  - ESMF-8.9.1-cpeGNU-26.03-MPI-PIO.eb
+  - ESMF-8.9.1-cpeCray-26.03-noMPI.eb
+  - ESMF-8.9.1-cpeCray-26.03-MPI-PIO.eb
+  - NCO-5.3.9-cpeGNU-26.03.eb
+  #- NCO-5.3.9-cpeCray-26.03.eb. # Still issues with GSL?
+#
+# ncview
+#
+  - ncview-2.1.9-cpeGNU-26.03.eb
+  - ncview-2.1.9-cpeCray-26.03.eb
+  #- ncview-2.1.9-cpeAOCC-25.03.eb
+#
+# OpenBLAS
+#
+  - OpenBLAS-0.3.32-cpeGNU-26.03.eb

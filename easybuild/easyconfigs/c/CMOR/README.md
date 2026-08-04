@@ -61,3 +61,12 @@ complete. Use at your own risk.
     
     -   `--with-udunits` is an unrecognized configure flag and EasyBuild 5 does
         not like those.
+
+
+### Version 3.15.2 for CPE 26.03
+
+-   Almost trivial port of 3.13.0 for 25.03, but switched to EB6-compatible parameters
+    and reformulated the configure options.
+
+-   Needed to fix the configure script as for the Cray Fortran compilers, precompiled modules
+    are now in uppercase.

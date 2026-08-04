@@ -37,3 +37,5 @@ and response on issues raised seems to be slow also.
 
 -   Trivial update of the 0.1.16 EasyConfig for 24.03, but the patch was
     no longer needed as this is now corrected already in VCFtools.
+
+-   Switched to EB6-compatible parameters in 26.03 and improved the sanity checks.

@@ -54,3 +54,15 @@
     The change in the download location with an effective name change to SZ2,
     which we did not implement in EasyBuild but which did require several other 
     corrections also in the EasyConfig.
+
+-   Done some clean-up for 26.03 and added a cpeCray version.
+
+-   26.03:
+
+    -   Added a cpeCray version
+
+    -   Build both static and shared libraries
+
+    -   Some clean-up
+
+    -   Tried to add a test phase but couldn't get it to work yet.

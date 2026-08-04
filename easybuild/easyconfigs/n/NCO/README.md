@@ -111,4 +111,11 @@ Some special ones:
     added sanity check shows that one of its commands is being used, even though the 
     library is not linked directly.
 
+
+### Version 5.3.9 for 25.03
+
+-   Trivial update of the 5.3.4 EasyConfig for 25.03, but switched to EB6-compatible 
+    parameters.
+
+-   libdap is still not properly picked up.
         

@@ -1,0 +1,85 @@
+# Developed by Kurt Lust (kurt.lust@uantwerpen.be) for the LUMI consortium
+easyblock = 'ConfigureMake'
+
+local_UDUNITS_version =      '2.2.28'        # https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/
+local_util_version =         '2.42.2'        # https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/ (Not yet in EB 2025a when checking)
+
+local_jsonc_version =        '0.19'          # https://github.com/json-c/json-c/tags
+
+local_CMOR_version =         '3.15.2'        # https://github.com/PCMDI/cmor/releases
+
+name =    'CMOR'
+version = local_CMOR_version
+
+homepage = 'https://cmor.llnl.gov/'
+
+whatis = [
+    'Description: CMOR - Climate Model Output Rewriter'
+]
+
+description = """
+CMOR was not designed to serve as an all-purpose writer of CF-compliant
+netCDF files, but simply to reduce the effort required to prepare and manage
+MIP model output. Although MIPs encourage systematic analysis of results
+across models, this is only easy to do if the model output is written in a
+common format with files structured similarly and with sufficient metadata
+uniformly stored according to a common standard. Individual modeling groups
+store their data in different ways, but if a group can read its own data,
+then it should easily be able to transform the data, using CMOR, into the
+common format required by the MIPs. The adoption of CMOR as a standard code
+for exchanging climate data will facilitate participation in MIPs because
+after learning how to satisfy the output requirements of one MIP, it will
+be easy to prepare output for other MIPs.
+
+NOTE: This module does not support the Python interface. It also does not
+include CDAT.
+"""
+
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+toolchain_opts = {'openmp': True, 'opt': True, 'pic': True, 'verbose': False}
+
+# https://github.com/PCMDI/cmor/archive/3.13.0.tar.gz
+sources = [{
+    'filename':          SOURCE_TAR_GZ,
+    'download_filename': '%(version)s.tar.gz',
+    'source_urls':       ['https://github.com/PCMDI/cmor/archive/'],
+}]
+checksums = ['1bb4a80b27710dd9b72f1cdae671e22f2db6631526feadb3d87a6e30e613fd32']
+
+build_deps = [
+    ('buildtools',   '%(toolchain_version)s',   '', True),
+]
+
+deps = [
+    # Cray PE
+    ('cray-hdf5',   EXTERNAL_MODULE),
+    ('cray-netcdf', EXTERNAL_MODULE),
+    ('UDUNITS',     local_UDUNITS_version), # For UUID
+    ('util-linux',  local_util_version),
+    ('json-c',      local_jsonc_version)
+]
+
+pre_configure_opts = 'module unload cray-libsci cray-mpich xpmem rocm && '
+pre_install_opts = pre_build_opts = pre_configure_opts
+#pre_configure_opts += 'sed -i -e \'s/git log.*/echo "%(version)s"/\' get_git_version.sh && '
+
+configure_opts = ' '.join([
+    '--enable-fortran',
+    '--without-python',
+    '--without-cdat',
+    '--with-json-c',
+    '--with-uuid',
+    '--with-udunits2',
+    '--with-netcdf'
+])
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s && cp LICENSE %(installdir)s/share/licenses/%(name)s'
+]
+
+sanity_check_paths = {
+    'files': ['lib/libcmor.a', 'include/cmor.h'],
+    'dirs':  [],
+}
+
+env_mod_category = 'data'

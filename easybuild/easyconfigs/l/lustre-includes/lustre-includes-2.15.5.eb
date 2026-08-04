@@ -1,0 +1,41 @@
+easyblock = 'Binary'
+
+local_lustre_includes_version = '2.15.5'
+
+name =    'lustre-includes'
+version = local_lustre_includes_version
+
+homepage = 'https://www.lustre.org/'
+
+whatis = [
+    'Description: Include file for the Lustre Client'
+]
+
+description = """
+The Lustre file system is an open-source, parallel file system that supports
+many requirements of leadership class HPC simulation environments.
+"""
+
+toolchain = SYSTEM
+
+sources = [{
+    'source_urls' : [f'https://downloads.whamcloud.com/public/lustre/lustre-{local_lustre_includes_version}/sles15sp5/client/RPMS/x86_64'],
+    'filename'    : f'lustre-client-devel-{local_lustre_includes_version}-1.x86_64.rpm',
+    'extract_cmd' : 'rpm2cpio %s | cpio -idmv',
+}]
+
+checksums = ['4ab2d448938a51278fee3aeac88d9c394d008bad449d1340ddfcb6ffd953b986']
+
+extract_sources = True
+
+install_cmds = [
+    'cp -ar %(builddir)s/usr/include/ %(installdir)s',
+]
+
+sanity_check_paths = {
+    'files': ['include/lustre/liblustreapi.h'],
+    'dirs': ['include/lustre', 'include/linux'],
+}
+
+moduleclass = 'system'
+

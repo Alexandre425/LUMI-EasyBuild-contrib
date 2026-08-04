@@ -1,0 +1,114 @@
+# contributed by Luca Marsella (CSCS)
+# Adapted by Kurt Lust (kurt.lust@uantwerpen.be) for the LUMI consortium
+#
+#DOC CDO compiled without MPI support.
+easyblock = 'ConfigureMake'
+
+local_cURL_version =         '8.21.0'        # https://curl.haxx.se/download/ - Newer than 2026.1?
+local_libaec_version =       '1.1.7'         # https://github.com/Deutsches-Klimarechenzentrum/libaec/releases
+local_libxml2_version =      '2.15.3'        # http://xmlsoft.org/sources/
+local_PROJ_version =         '9.8.1'         # https://proj.org/download.html
+local_UDUNITS_version =      '2.2.28'        # https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/
+local_util_version =         '2.42.2'        # https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/ (Not yet in EB 2025a when checking)
+
+local_CMOR_version =         '3.15.2'        # https://github.com/PCMDI/cmor/releases
+local_ecCodes_version =      '2.48.0'        # https://confluence.ecmwf.int/display/ECC/Releases
+
+local_CDO_version =          '2.6.3'         # https://code.mpimet.mpg.de/projects/cdo/files
+
+name =    'CDO'
+version = local_CDO_version
+
+homepage = 'https://code.mpimet.mpg.de/projects/cdo'
+
+whatis = [
+    'Description: CDO - Climate Data Operators, a collection of command line operators to maniupate and analyse climate and NWP model data'
+]
+
+description = """
+CDO is a collection of command line Operators to manipulate and analyse Climate
+and NWP model Data. Supported data formats are GRIB 1/2, netCDF 3/4, SERVICE,
+EXTRA and IEG. There are more than 600 operators available.
+"""
+
+toolchain = {'name': 'cpeCray', 'version': '26.03'}
+toolchain_opts = {'openmp': True, 'opt': True, 'pic': True, 'verbose': False,
+                 'extra_cflags': '-Wl,--allow-shlib-undefined', 
+                 'extra_cxxflags': '-Wl,--allow-shlib-undefined'}
+
+# download from https://code.mpimet.mpg.de/projects/cdo/files often fails
+# sources = ['/apps/common/UES/easybuild/sources/%(nameletterlower)s/%(name)s/%(namelower)s-%(version)s.tar.gz']
+#
+# Check sources on https://code.mpimet.mpg.de/projects/cdo/files using the download symbol
+# at the right of the screen.
+# https://code.mpimet.mpg.de/attachments/30128
+sources =     [SOURCELOWER_TAR_GZ]
+source_urls = ['https://code.mpimet.mpg.de/attachments/download/30224/']
+checksums =   ['889ece29314b48cbf47ba14ab5f1779886f128767f6d22dfcc7fad1e62f2d017']
+
+# No MPI support, OpenMP support for compute intensive operators (https://code.mpimet.mpg.de/projects/cdo/wiki/OpenMP_support)
+build_deps = [
+    ('buildtools',   '%(toolchain_version)s',   '', True),
+    ('craype-network-none', EXTERNAL_MODULE),
+    ('craype-accel-none',   EXTERNAL_MODULE),
+]
+
+deps = [
+    # Cray PE
+    ('cray-hdf5',   EXTERNAL_MODULE),
+    ('cray-netcdf', EXTERNAL_MODULE),
+    ('cray-fftw',   EXTERNAL_MODULE),
+    # LUMI software stack
+    ('cURL',        local_cURL_version),
+    ('libaec',      local_libaec_version),
+    ('libxml2',     local_libxml2_version),
+    ('PROJ',        local_PROJ_version),
+    ('UDUNITS',     local_UDUNITS_version),
+    ('util-linux',  local_util_version),
+    # Contrib deps
+    ('ecCodes',     local_ecCodes_version),
+    ('CMOR',        local_CMOR_version),
+]
+
+pre_configure_opts = 'module unload rocm && '
+pre_build_opts = pre_configure_opts
+
+pre_configure_opts += 'ln -fs $(which libtool) libcdi/libtool && LDFLAGS="$LDFLAGS -L$EBROOTJSONMINC/lib -ljson-c" '
+
+configure_opts = ' '.join([
+    '--disable-static',
+    '--enable-cdi-lib',
+    '--enable-openmp',
+    '--with-fftw3',
+    '--with-hdf5=$HDF5_DIR',
+    '--with-netcdf=$EBROOTNETCDFMINFORTRAN',
+    '--with-curl=$EBROOTCURL',
+    '--with-eccodes=$EBROOTECCODES',
+    '--with-proj=$EBROOTPROJ',
+    '--with-szlib=$EBROOTLIBAEC',
+    '--with-udunits2=$EBROOTUDUNITS',
+    '--with-util-linux-uuid=$EBROOTUTILMINLINUX',
+    '--with-libxml2=$EBROOTLIBXML2',
+    '--with-cmor=$EBROOTCMOR',
+    '--with-magics=no' # ECMWF plotting library but not yet tried to install this one.
+])
+
+post_install_cmds = [
+    'mkdir -p %(installdir)s/share/licenses/%(name)s && cp LICENSE %(installdir)s/share/licenses/%(name)s'
+]
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s', f'lib/libcdi.{SHLIB_EXT}', 'include/cdi.h'],
+    'dirs':  [],
+}
+
+sanity_check_cmds = [
+    'pkg-config --validate cdi',
+    f'pkg-config --exact-version={version} cdi',
+    'cdo --version',
+    'cdo -h',
+    'cdo --operators',
+    'cdi -h', 
+]
+
+env_mod_category = 'data'

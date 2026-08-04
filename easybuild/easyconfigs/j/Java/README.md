@@ -58,3 +58,8 @@ it multiple times in the same `LUMI` stack.
 -   Straightforward port of the EasyConfigs for 17, did not wait for an update in the
     EasyBuilders repository.
 
+
+### Java 25 (LTS release)
+
+-   Due to the different version number structure, we did rework the EasyConfig a bit.
+    We also switched to EB6-compatible parameters.

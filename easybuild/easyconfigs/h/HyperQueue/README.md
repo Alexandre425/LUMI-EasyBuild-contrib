@@ -99,3 +99,7 @@ We build our own EasyConfig. Two big warnings are needed though:
 -   As we failed to build a properly working Rust compiler in a sufficiently recent version
     for this version of HyperQueue, we used the binary distribution.
 
+
+### 0.26.2 from binary distribution
+
+-   Trivial update of the 0.24.0 EasyConfig.

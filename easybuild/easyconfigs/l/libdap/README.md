@@ -65,3 +65,5 @@ package.
     `libtirpc` if `libdap` fails in use.
     
 -   Added CppUnit as a dependency as the configure script really was looking for this.
+
+-   Switched to EB6-compatible parameters for 26.03.

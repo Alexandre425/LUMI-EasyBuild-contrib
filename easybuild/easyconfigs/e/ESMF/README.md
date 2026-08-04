@@ -83,4 +83,9 @@ Note that ESMF uses a custom EasyBlock which needs adaptations for Cray systems.
         but `preconfigopts` not and that lead to misleading information from `make info`
         which is what happens during the configure phase.
 
+
+### Version 8.9.1 for 26.03
+
+-   The EasyConfigs are straightforward ports of those for 8.81 in 25.03, but we switched
+    to EB6-compatible parameters.
     

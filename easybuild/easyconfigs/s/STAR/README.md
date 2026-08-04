@@ -22,3 +22,5 @@
 -   Played a bit with `toolchainopts` so that the options that are set 
     by EasyBuild correspond to those used in the Makefile already so to
     not lower the optimisation level normally used by the authors.
+
+-   Switched to EB6-compatible parameters in 26.03.
