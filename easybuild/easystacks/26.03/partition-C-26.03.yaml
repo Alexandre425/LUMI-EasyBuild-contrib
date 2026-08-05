@@ -169,3 +169,8 @@ easyconfigs:
 #
   - SuperLU-7.0.1-cpeGNU-26.03-ParMETIS-idx32-fp32.eb
   - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+#
+# UppASD
+#
+  - UppASD-6.0.2-cpeGNU-26.03.eb
+  - UppASD-6.0.2-cpeCray-26.03.eb
