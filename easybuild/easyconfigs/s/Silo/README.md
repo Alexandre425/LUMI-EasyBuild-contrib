@@ -31,4 +31,11 @@ It is used in the LUMI graphics stack, in ParaView and VisIt.
 -   The EasyConfig is based on the JSC EasyConfigs for Silo.
 
 -   Added an additional sanity check for 25.03.
-    
+
+
+### 4.12.1 for 26.03
+
+-   A major rework was needed as the package has switched to CMake only.
+
+-   To build libsilo and libsiloh5 both in static and shared version, 4 iterations
+    are needed (shared/static and with/without HDF5).

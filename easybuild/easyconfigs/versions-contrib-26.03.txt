@@ -96,9 +96,9 @@ local_zfp_version =          '1.0.1'         # https://github.com/LLNL/zfp/relea
 # partitions also
 #
 
-local_Catalyst_version =     '2.0.0'         # https://gitlab.kitware.com/paraview/catalyst/-/tags
-local_Conduit_version =      '0.9.4'         # https://github.com/LLNL/conduit/releases
-local_Silo_version =         '4.11.1'        # https://github.com/LLNL/Silo/releases
+local_Catalyst_version =     '2.1.0'         # https://gitlab.kitware.com/paraview/catalyst/-/tags
+local_Conduit_version =      '0.9.7'         # https://github.com/LLNL/conduit/releases
+local_Silo_version =         '4.12.1'        # https://github.com/LLNL/Silo/releases
 
 #
 # LUMI-D stack only

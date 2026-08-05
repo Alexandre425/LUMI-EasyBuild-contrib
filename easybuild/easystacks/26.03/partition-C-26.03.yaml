@@ -174,3 +174,11 @@ easyconfigs:
 #
   - UppASD-6.0.2-cpeGNU-26.03.eb
   - UppASD-6.0.2-cpeCray-26.03.eb
+#
+# VTK
+#
+  - Silo-4.12.1-cpeGNU-26.03.eb
+  - Conduit-0.9.7-cpeGNU-26.03.eb
+  - Catalyst-2.1.0-cpeGNU-26.03.eb
+  - zfp-1.0.1-cpeGNU-26.03.eb
+# Leading to VTK which has not yet been ported to 26.03
