@@ -51,6 +51,14 @@ easyconfigs:
   - mpiFileUtils-0.12-cpeCray-26.03.eb
   - mpiFileUtils-0.12-cpeAMD-26.03.eb
 #
+# PLUMED
+#
+  - PLUMED-2.9.5-cpeAMD-26.03-noPython.eb
+  - PLUMED-2.10.1-cpeAMD-26.03-noPython.eb
+# Optional (no matching GROMACS version at the moment)
+  - PLUMED-2.9.5-cpeCray-26.03-noPython.eb
+  - PLUMED-2.10.1-cpeCray-26.03-noPython.eb
+#
 # VeloxChem (unfinished)
 #
   - Cython-3.2.9-cpeAMD-26.03.eb
