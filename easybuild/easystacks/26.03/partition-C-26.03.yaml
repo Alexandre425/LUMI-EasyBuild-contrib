@@ -159,6 +159,12 @@ easyconfigs:
   - QuEST-3.7.0-cpeGNU-26.03-prec2-hybrid.eb
   - QuEST-4.2.0-cpeGNU-26.03-prec2-hybrid.eb
 #
+# STRUMPACK
+#
+  - zfp-1.0.1-cpeGNU-26.03.eb
+  - STRUMPACK-7.2.0-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+  - STRUMPACK-8.0.0-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+#
 # SuperLU
 #
   - SuperLU-7.0.1-cpeGNU-26.03-ParMETIS-idx32-fp32.eb
