@@ -154,6 +154,11 @@ easyconfigs:
   - PLUMED-2.10.1-cpeCray-26.03-noPython.eb
   - PLUMED-2.10.1-cpeGNU-26.03-cray-python-3.12.12.eb
 #
+# QuEST
+#
+  - QuEST-3.7.0-cpeGNU-26.03-prec2-hybrid.eb
+  - QuEST-4.2.0-cpeGNU-26.03-prec2-hybrid.eb
+#
 # SuperLU
 #
   - SuperLU-7.0.1-cpeGNU-26.03-ParMETIS-idx32-fp32.eb

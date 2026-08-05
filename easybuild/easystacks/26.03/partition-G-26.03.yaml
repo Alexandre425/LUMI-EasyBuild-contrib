@@ -59,6 +59,10 @@ easyconfigs:
   - PLUMED-2.9.5-cpeCray-26.03-noPython.eb
   - PLUMED-2.10.1-cpeCray-26.03-noPython.eb
 #
+# QuEST
+#
+  - QuEST-4.2.0-cpeGNU-26.03-prec2-rocm.eb
+#
 # VeloxChem (unfinished)
 #
   - Cython-3.2.9-cpeAMD-26.03.eb
