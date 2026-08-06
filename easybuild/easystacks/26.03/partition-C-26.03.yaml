@@ -27,7 +27,22 @@ easyconfigs:
 #
 # amd-aocl (AOCL)
 #
-# TODO
+  - aocl-utils-5.1-cpeGNU-26.03.eb
+  - aocl-utils-5.1-cpeCray-26.03.eb
+  - BLIS-5.1-cpeGNU-26.03-amd.eb
+  - BLIS-5.1-cpeGNU-26.03-amd-ILP64.eb
+  - BLIS-5.1-cpeCray-26.03-amd.eb
+  - BLIS-5.1-cpeCray-26.03-amd-ILP64.eb
+  - libFLAME-5.1-cpeGNU-26.03-amd.eb
+  - libFLAME-5.1-cpeCray-26.03-amd.eb
+  - libFLAME-5.1-cpeGNU-26.03-amd-ILP64.eb
+  - libFLAME-5.1-cpeCray-26.03-amd-ILP64.eb
+  - ScaLAPACK-5.1-cpeGNU-26.03-amd.eb
+  - ScaLAPACK-5.1-cpeGNU-26.03-amd-ILP64.eb
+  - ScaLAPACK-5.1-cpeCray-26.03-amd.eb
+  - amd-aocl-5.1-cpeGNU-26.03.eb
+  - amd-aocl-5.1-cpeGNU-26.03-ILP64.eb
+  - amd-aocl-5.1-cpeCray-26.03.eb
 #
 # aria2
 #
@@ -115,7 +130,7 @@ easyconfigs:
   #- CppUnit-1.15.1-cpeAOCC-26.03.eb
   - libdap-3.21.1-cpeGNU-26.03.eb
   - libdap-3.21.1-cpeCray-26.03.eb
-# libdap was used in NCO but have trouble with it in 25.03 and 26.03
+# libdap was used in NCO but have trouble with it in 26.03 and 26.03
   - Java-25.0.4+7.eb
   - Java-25.eb
   - ANTLR-2.7.7-cpeGNU-26.03-cray-python3.12.eb
@@ -131,7 +146,7 @@ easyconfigs:
 #
   - ncview-2.1.9-cpeGNU-26.03.eb
   - ncview-2.1.9-cpeCray-26.03.eb
-  #- ncview-2.1.9-cpeAOCC-25.03.eb
+  #- ncview-2.1.9-cpeAOCC-26.03.eb
 #
 # OpenBLAS
 #

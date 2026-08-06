@@ -108,3 +108,9 @@ local_AnariSDK_version =     '0.11.1'        # https://github.com/KhronosGroup/A
 local_VisRTX_version =       '0.9.0'         # https://github.com/NVIDIA/VisRTX/releases
 local_VisIt_version =        '3.4.1'         # https://github.com/visit-dav/visit/releases
 local_VTK_version =          '9.2.6'         # https://vtk.org/download/
+
+#
+# AMD AOCL: For as long as all versions are the same, we use a single var.
+#
+local_AMD_AOCL_version =     '5.1'           # https://github.com/amd/aocl-utils/releases, too much issues with 5.3.
+
