@@ -48,6 +48,7 @@ local_libgeotiff_version =   '1.7.4'         # https://github.com/OSGeo/libgeoti
 local_libnsl_version =       '2.0.1'         # https://github.com/thkukuk/libnsl/releases
 local_libsodium_version =    '1.0.22'        # https://download.libsodium.org/libsodium/releases/
 local_libspatialindex_version = '2.1.0'      # https://github.com/libspatialindex/libspatialindex/releases
+local_libuv_version =        '1.52.1'        # https://github.com/libuv/libuv/releases  
 local_libvori_version =      '220621'        # https://brehm-research.de/libvori.php
 local_libxc6_version =       '6.2.2'         # https://gitlab.com/libxc/libxc/-/releases
 local_libxc7_version =       '7.0.0'         # https://gitlab.com/libxc/libxc/-/releases

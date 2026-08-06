@@ -111,6 +111,13 @@ easyconfigs:
   - GDAL-3.13.2-cpeGNU-26.03-noPython.eb
   - GDAL-3.13.2-cpeGNU-26.03-cray-python-3.12.12.eb
 #
+# GROMACS
+# Skipped for now
+#
+# LAMMPS
+# Skipped for now
+#
+#
 # mpiFileUtils
 #
   - lustre-includes-2.15.5.eb # Though we may just want this in common.
@@ -152,6 +159,10 @@ easyconfigs:
 #
   - OpenBLAS-0.3.32-cpeGNU-26.03.eb
 #
+# OpenFOAM
+# Skipped for now
+#
+#
 # PETSc with Hypre.
 #
   - MUMPS-5.9.1-cpeGNU-26.03-OpenMP-METIS-idx32-fp32.eb
@@ -174,6 +185,13 @@ easyconfigs:
   - QuEST-3.7.0-cpeGNU-26.03-prec2-hybrid.eb
   - QuEST-4.2.0-cpeGNU-26.03-prec2-hybrid.eb
 #
+# R
+#
+  - Info-ZIP-3.0-6.0-cpeGNU-26.03.eb
+  - libuv-1.52.1-cpeGNU-26.03.eb
+  - R-4.6.1-cpeGNU-26.03-OpenMP-raw.eb
+  - R-4.6.1-cpeGNU-26.03-OpenMP.eb
+#
 # STRUMPACK
 #
   - zfp-1.0.1-cpeGNU-26.03.eb
@@ -184,6 +202,10 @@ easyconfigs:
 #
   - SuperLU-7.0.1-cpeGNU-26.03-ParMETIS-idx32-fp32.eb
   - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+#
+# Trilinos
+# Skipped for now
+#
 #
 # UppASD
 #
@@ -197,3 +219,19 @@ easyconfigs:
   - Catalyst-2.1.0-cpeGNU-26.03.eb
   - zfp-1.0.1-cpeGNU-26.03.eb
 # Leading to VTK which has not yet been ported to 26.03
+#
+# Yambo
+# Skipped for now
+#
+################################################################################
+#
+# Packages that require manual downloads
+#
+#
+# NAMD
+# Skipped for now
+#
+#
+# VASP
+# Skipped for now
+#
