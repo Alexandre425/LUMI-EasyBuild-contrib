@@ -93,6 +93,8 @@
         detect the HPE Cray PE and doesn't allow to overwrite the settings easily to tell
         it that the MPI, BLAS and ScaLAPACK libraries will be linked properly.
 
+        Neither Spack nor EasyBuild currently offer any support for QUIP which says a lot...
+
     -   The **ML-HDNNP** is explicitly not included as it requires the n2p2 library which
         itself has a lot of dependencies, many of which don't belong on an HPC system (TeX)
         or directly on Lustre (lots of Python packages needed). It is not clear if a minimal
