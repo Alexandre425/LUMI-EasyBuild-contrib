@@ -112,7 +112,11 @@ easyconfigs:
   - GDAL-3.13.2-cpeGNU-26.03-cray-python-3.12.12.eb
 #
 # GROMACS
-# Skipped for now
+#
+  - GROMACS-2025.4-cpeGNU-26.03-CPU.eb
+  - GROMACS-2025.4-cpeCray-26.03-CPU.eb
+  - GROMACS-2026.3-cpeGNU-26.03-CPU.eb
+  - GROMACS-2026.3-cpeCray-26.03-CPU.eb
 #
 # LAMMPS
 # Skipped for now
