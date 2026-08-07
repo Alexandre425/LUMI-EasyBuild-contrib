@@ -84,6 +84,7 @@ local_SZ3_version =          '3.3.2'         # https://github.com/szcompressor/S
 local_UnZip_version =        '6.0'           # https://infozip.sourceforge.net/UnZip.html
 
 local_VCFtools_version =     '0.1.17'        # https://github.com/vcftools/vcftools/releases
+local_Voropp_version =       '0.4.6'         # https://math.lbl.gov/voro++/download/
 
 local_Xerces_version =       '3.3.0'         # https://xerces.apache.org/xerces-c/releases.html
 
