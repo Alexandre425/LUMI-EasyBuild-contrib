@@ -66,6 +66,7 @@ local_OpenPGM_version =      '5.2.122'       # https://code.google.com/archive/p
 local_OptiX_version =        '8.0.0'         # https://developer.nvidia.com/designworks/optix/download
 local_OTF2_version =         '3.0.3'         # https://www.vi-hps.org/projects/score-p/
 
+local_PLUMED2_7_version =    '2.7.6'         # https://github.com/plumed/plumed2/releases, LAMMPS may prefer old versions.
 local_PLUMED2_9_version =    '2.9.5'         # https://github.com/plumed/plumed2/releases
 local_PLUMED2_10_version =   '2.10.1'        # https://github.com/plumed/plumed2/releases
 

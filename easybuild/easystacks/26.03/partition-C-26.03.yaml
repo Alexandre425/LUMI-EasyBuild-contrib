@@ -119,8 +119,11 @@ easyconfigs:
   - GROMACS-2026.3-cpeCray-26.03-CPU.eb
 #
 # LAMMPS
-# Skipped for now
+# Testing may fail on the TDS as LAMMPS downloads packages in
+# the background. We've tried to eliminate those downloads though.
 #
+  - PLUMED-2.7.6-cpeGNU-26.03-noPython.eb
+  - LAMMPS-22Jul2025_update4-cpeGNU-26.03-CPU.eb
 #
 # mpiFileUtils
 #
