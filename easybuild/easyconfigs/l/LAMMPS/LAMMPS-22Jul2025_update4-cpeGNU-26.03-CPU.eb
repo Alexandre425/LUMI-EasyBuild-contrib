@@ -4,6 +4,7 @@
 
 easyblock = 'CMakeMake'
 
+# Central stack
 local_FFmpeg_version =       '8.1.1'         # https://ffmpeg.org/download.html#releases
 local_libjpegturbo_version = '3.2.0'         # https://github.com/libjpeg-turbo/libjpeg-turbo/releases
 local_libpng_version =       '1.6.58'        # http://www.libpng.org/pub/png/libpng.html (Not yet in EB 2025a when checking)
@@ -16,6 +17,9 @@ local_PCRE2_version =        '10.47'         # https://github.com/PCRE2Project/p
 local_libxml2_version =      '2.15.3'        # http://xmlsoft.org/sources/
 local_Eigen3_version =       '3.4.0'         # https://gitlab.com/libeigen/eigen/-/releases, LAMMPS needs Eigen 3.x.
 
+# User-installable
+local_ADIOS2_version =       '2.12.1'        # https://github.com/ornladios/ADIOS2/releases
+local_Voropp_version =       '0.4.6'         # https://math.lbl.gov/voro++/download/
 local_PLUMED2_7_version =    '2.7.6'         # https://github.com/plumed/plumed2/releases, LAMMPS may prefer old versions.
 
 name =           'LAMMPS'
@@ -95,20 +99,22 @@ deps = [
     ('libpng',                   local_libpng_version),
     ('zstd',                     local_zstd_version),
     ('GSL',                      local_GSL_version,       '-OpenMP'),
-    ('zlib',                     local_zlib_version),                         # For the COMPRESS package
+    ('zlib',                     local_zlib_version),                           # For the COMPRESS package
     ('gzip',                     local_gzip_version),
     ('cURL',                     local_cURL_version),
     ('PCRE2',                    local_PCRE2_version),
     ('libxml2',                  local_libxml2_version),
-    ('Eigen',                    local_Eigen3_version,    '',           True), # For the MACHDYN package
+    ('Eigen',                    local_Eigen3_version,    '',           True),   # For the MACHDYN package
     # Contrib deps
-    ('PLUMED',                   local_PLUMED2_7_version, '-noPython'),        # For the PLUMED package
+    ('ADIOS2',                   local_ADIOS2_version,    '-MPI-hdf5-parallel'), # For the ADIOS package
+    ('PLUMED',                   local_PLUMED2_7_version, '-noPython'),          # For the PLUMED package
+    ('Voro++',                   local_Voropp_version),                          # For the VORONOI package
 ]
 
 local_enabled_packages = [
-    #'ADIOS',        # Dependency in contrib, and could not get this to work yet.
+    'ADIOS',        # Dependency in contrib, and could not get this to work yet.
     'AMOEBA',
-    'APIP',          # TODO
+    'APIP',
     'ASPHERE',
     'ATC',
     'AWPMD',
@@ -154,14 +160,16 @@ local_enabled_packages = [
     'MESONT',
     'MGPT',
     'MISC',
-    #'ML-HDNNP',     # Not included as it needs the n2p2 library
+    #'ML-HDNNP',     # Not included as it needs the n2p2 library which by itself has too many dependencies to be practical,
+                     # including dependencies such as TeX which do not belong on an HPC system, and then also seems to require
+                     # several Python packages in support.
     'ML-IAP',        # Needs ML-SNAP to be included in the list. When enabling Python (not done yet), Cython is also needed.
     'ML-PACE',       # Causes a hidden download unless the right version is installed first...
     'ML-POD',
     #'ML-QUIP',      # Needs the QUIP library so not included.
     'ML-RANN',
     'ML-SNAP',
-    'ML-UF3',        # TODO
+    'ML-UF3',
     'MOFFF',
     'MOLECULE',
     'MOLFILE',
@@ -172,7 +180,7 @@ local_enabled_packages = [
     'PERI',
     'PHONON',
     'PLUGIN',
-    'PLUMED',        # Needs PLUMED, but the manual mentions it should be 2.4.x, 2.5.x or 2.6.x...
+    'PLUMED',        # Needs PLUMED, but the manual mentions it should be 2.4.x, 2.5.x or 2.6.x and it downloads 2.7.2 if none is given
     'POEMS',
     'PTM',
     'PYTHON',
@@ -183,7 +191,7 @@ local_enabled_packages = [
     'REACTION',
     'REAXFF',
     'REPLICA',
-    'RHEO',          # TODO
+    'RHEO', 
     'RIGID',
     #'SCAFACOS',     # Not included at the moment as it needs an additional library.
     'SHOCK',
@@ -193,7 +201,7 @@ local_enabled_packages = [
     'SRD',
     'TALLY',
     'UEF',
-    #'VORONOI',      # Not included as it needs the Voro++ library
+    'VORONOI',       # Needs Voro++
     #'VTK',          # Not included at the moment as it needs the VTK libraries
     'YAFF',
 ]
@@ -206,10 +214,10 @@ local_disabled_packages = [
 configure_opts = ' '.join([
     '-DCMAKE_CXX_COMPILER="$CXX"',
     '-DMPICXX="$CXX"',
-    '-DBUILD_SHARED_LIBS=NO'  # Default is NO. Set to YES to build liblammps.so instead
+    '-DBUILD_SHARED_LIBS=NO',  # Default is NO. Set to YES to build liblammps.so instead
     '-DBUILD_MPI=ON',
     '-DBUILD_OMP=ON',
-    '-DBUILD_TOOLS=ON'        # Default is OFF, ON will build binary2txt, chain.x, micelle2d.x, msi2lmp, phana, stl_bin2txt
+    '-DBUILD_TOOLS=ON',        # Default is OFF, ON will build binary2txt, chain.x, micelle2d.x, msi2lmp, phana, stl_bin2txt
     '-DFFT=FFTW3',
     '-DFFT_KOKKOS=FFTW3',
     '-DWITH_JPEG=ON',

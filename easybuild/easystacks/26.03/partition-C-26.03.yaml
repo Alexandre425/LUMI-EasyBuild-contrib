@@ -122,7 +122,9 @@ easyconfigs:
 # Testing may fail on the TDS as LAMMPS downloads packages in
 # the background. We've tried to eliminate those downloads though.
 #
+  - ADIOS2-2.12.1-cpeGNU-26.03-MPI-hdf5-parallel.eb
   - PLUMED-2.7.6-cpeGNU-26.03-noPython.eb
+  - Voro++-0.4.6-cpeGNU-26.03.eb
   - LAMMPS-22Jul2025_update4-cpeGNU-26.03-CPU.eb
 #
 # mpiFileUtils

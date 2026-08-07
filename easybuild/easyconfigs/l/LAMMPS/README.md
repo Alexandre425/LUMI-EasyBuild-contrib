@@ -86,6 +86,8 @@
         downloads version 2.7.2... We installed the latest 2.7 version just to 
         be on the safe side.
 
+    -   Added a few additional ones that are new or that we had issues with in the past.
+
 -   Hidden downloads found:
 
     -   https://download.lammps.org/potentials/C_10_10.mesocnt to the `potentials` subdirectory
