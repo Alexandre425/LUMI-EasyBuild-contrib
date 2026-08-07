@@ -88,6 +88,26 @@
 
     -   Added a few additional ones that are new or that we had issues with in the past.
 
+    -   The **QUIP** extension is explicitly not supported as it is impossible to build this
+        code properly on LUMI. Its Meson config script is way too primitive, fails to
+        detect the HPE Cray PE and doesn't allow to overwrite the settings easily to tell
+        it that the MPI, BLAS and ScaLAPACK libraries will be linked properly.
+
+    -   The **ML-HDNNP** is explicitly not included as it requires the n2p2 library which
+        itself has a lot of dependencies, many of which don't belong on an HPC system (TeX)
+        or directly on Lustre (lots of Python packages needed). It is not clear if a minimal
+        installation is possible and would be good enough to at least provide the parts that
+        LAMMPS needs.
+
+    -   The **QMMM** extension is also not included because this creates a terrible dependency
+        tree, also pulling in QuantumESPRESSO, making quick updates after system upgrades
+        totally impossible.
+
+    -   **ScaFaCos** support is not yet included.
+
+    -   **VTK** would make the whole graphics stack a dependency. As it is hard to build that stack
+        and is not even done for all versions of the PE, this is not included.
+
 -   Hidden downloads found:
 
     -   https://download.lammps.org/potentials/C_10_10.mesocnt to the `potentials` subdirectory
