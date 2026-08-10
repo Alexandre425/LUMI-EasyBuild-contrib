@@ -105,8 +105,6 @@
         tree, also pulling in QuantumESPRESSO, making quick updates after system upgrades
         totally impossible.
 
-    -   **ScaFaCos** support is not yet included.
-
     -   **VTK** would make the whole graphics stack a dependency. As it is hard to build that stack
         and is not even done for all versions of the PE, this is not included.
 
