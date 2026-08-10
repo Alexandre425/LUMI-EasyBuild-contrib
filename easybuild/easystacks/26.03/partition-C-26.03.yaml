@@ -249,8 +249,12 @@ easyconfigs:
 #
 #
 # NAMD
-# Skipped for now
 #
+  - Tcl-8.6.18-cpeGNU-26.03.eb
+  - Charm++-8.0.0-cpeGNU-26.03-mpi-crayshasta.eb
+  - NAMD-3.0.3-cpeGNU-26.03-mpi-crayshasta.eb
+  - Charm++-8.0.0-cpeGNU-26.03-ofi-crayshasta.eb
+  - NAMD-3.0.3-cpeGNU-26.03-ofi-crayshasta.eb
 #
 # VASP
 # Skipped for now

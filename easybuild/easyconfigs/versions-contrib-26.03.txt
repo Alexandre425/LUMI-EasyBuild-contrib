@@ -84,6 +84,8 @@ local_SWIG_version =         '4.4.1'         # https://www.swig.org/
 local_SZ_version =           '2.1.12.5'      # https://github.com/szcompressor/SZ/releases
 local_SZ3_version =          '3.3.2'         # https://github.com/szcompressor/SZ3/releases
 
+local_Tcl8_version =         '8.6.18'        # https://tcl.tk/
+
 local_UnZip_version =        '6.0'           # https://infozip.sourceforge.net/UnZip.html
 
 local_VCFtools_version =     '0.1.17'        # https://github.com/vcftools/vcftools/releases
