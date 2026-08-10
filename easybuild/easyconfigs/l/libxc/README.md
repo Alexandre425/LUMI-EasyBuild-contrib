@@ -41,8 +41,10 @@ tested and reliable set of LDA, GGA, and meta-GGA  functionals.
 
 -   Derived from the 6.1.0 EasyConfig.
 
--   6.2.2 is still the prefered version for all CP2K 2024.x versions so it was ported 
+-   6.2.2 is still the preferred version for all CP2K 2024.x versions so it was ported 
     to 25.03 as well.
+
+-   Ported to 26.03 also for a version of Yambo. Switched to EB6-compatible parameters.
 
 
 ### Version 7.0.0 for cpeGNU 24.03

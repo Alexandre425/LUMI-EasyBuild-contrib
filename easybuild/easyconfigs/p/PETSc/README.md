@@ -76,3 +76,11 @@ subdirectory where you can also select the appropriate tag, e.g.,
     the future we may search for forks where ParMETIS does not also include
     the METIS library in its build (but we would still have to be consistent
     in the precision for indices and reals).
+
+
+### Version 3.23.7-cpeGNU-26.03-OpenMP-CPU-forYambo
+
+-   Similar to the version 3.23.5 for Yambo in 25.03, but decided to go for a bug fix
+    release.
+
+-   Switched to EB6-compatible parameters in the EasyConfigs.

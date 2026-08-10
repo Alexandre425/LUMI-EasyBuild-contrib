@@ -231,7 +231,17 @@ easyconfigs:
 # Leading to VTK which has not yet been ported to 26.03
 #
 # Yambo
-# Skipped for now
+#
+  - libxc-6.2.2-cpeGNU-26.03.eb
+  - DeviceXlib-0.9.1-cpeGNU-26.03-OpenMP-CPU.eb
+  - Yambo-5.3.0-cpeGNU-26.03.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-OpenMP-METIS-idx32-fp32.eb
+  - Hypre-3.1.0-cpeGNU-26.03.eb
+  - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
+  - SuperLU_DIST-9.2.1-cpeGNU-26.03-OpenMP-CPU-ParMETIS-idx32-fp32.eb
+  - PETSc-3.23.7-cpeGNU-26.03-OpenMP-CPU-forYambo.eb
+  - SLEPc-3.23.3-cpeGNU-26.03-OpenMP-CPU-forYambo.eb
+  - Yambo-5.3.0-cpeGNU-26.03-SLEPc-double.eb
 #
 ################################################################################
 #
