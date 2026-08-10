@@ -44,6 +44,12 @@ easyconfigs:
   - Blosc2-3.2.3-cpeGNU-26.03.eb
   - Blosc2-3.2.3-cpeCray-26.03.eb
 #
+# GROMACS
+#
+  - AdaptiveCpp-25.10.0-cpeAMD-26.03-rocm.eb
+  - GROMACS-2026.3-cpeAMD-26.03-HeFFTe-rocm-sycl.eb
+  - GROMACS-2026.3-cpeAMD-26.03-HeFFTe-rocm-hip.eb
+#
 # mpiFileUtils
 #
   - lustre-includes-2.15.5.eb # Though we may just want this in common.
