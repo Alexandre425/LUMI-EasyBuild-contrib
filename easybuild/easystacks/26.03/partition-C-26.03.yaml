@@ -296,5 +296,8 @@ easyconfigs:
   - NAMD-3.0.3-cpeGNU-26.03-ofi-crayshasta.eb
 #
 # VASP
-# Skipped for now
+# Partly skipped for now
 #
+  - DFTD4-3.7.0-cpeGNU-26.03.eb
+  - mctc-lib-0.5.2-cpeGNU-26.03.eb
+  - DFTD4-4.2.0-cpeGNU-26.03.eb
