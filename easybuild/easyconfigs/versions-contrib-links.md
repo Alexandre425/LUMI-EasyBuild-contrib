@@ -91,3 +91,10 @@ Packages marked with (M) are packages that pull in the others as dependencies.
 | [yaml-cpp](https://github.com/jbeder/yaml-cpp) | [yaml-cpp](https://github.com/jbeder/yaml-cpp/releases) | [EB yaml-cpp](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/y/yaml-cpp) | / |  |
 | [ZeroMQ](https://zeromq.org) | [Use .tar.gz](https://github.com/zeromq/libzmq/releases/) | [EB ZeroMQ](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/z/ZeroMQ) | [CSCS ZeroMQ](https://github.com/eth-cscs/production/tree/master/easybuild/easyconfigs/z/ZeroMQ) |  |
 | [zfp](http://zfp.llnl.gov/) | [Download zfp](https://github.com/LLNL/zfp/releases) | [EB zfp](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/z/zfp) | [CSCS zfp](https://github.com/eth-cscs/production/tree/master/easybuild/easyconfigs/z/zfp) |  |
+
+
+Contributions from EPICURE:
+
+| Package | Download | EasyBuild | Spack | Remarks |
+|:--------|:---------|:----------|:-----|:--------|
+| [MicroHH](http://www.microhh.org/) | [GitHub releases](https://github.com/microhh/microhh/releases) |  |  |  |
