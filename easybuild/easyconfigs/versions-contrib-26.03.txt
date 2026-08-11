@@ -57,7 +57,7 @@ local_libxc7_version =       '7.0.0'         # https://gitlab.com/libxc/libxc/-/
 local_libxsmm_version =      '1.17'          # https://github.com/libxsmm/libxsmm/releases
 local_libxsmm_CP2K_version = '1.17+e0c4a23'  # https://github.com/libxsmm/libxsmm/releases - Special commit for CP2K
 
-local_MATIO_version =        '1.5.29'        # https://github.com/tbeu/matio/releases
+local_MATIO_version =        '1.5.30'        # https://github.com/tbeu/matio/releases
 local_MUMPS_version =        '5.9.1'         # https://mumps-solver.org/index.php?page=dwnld
 
 local_NCO_version =          '5.3.9'         # https://github.com/nco/nco/releases

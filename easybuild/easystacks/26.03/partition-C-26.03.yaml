@@ -214,8 +214,11 @@ easyconfigs:
   - SuperLU-7.0.1-cpeGNU-26.03-OpenMP-ParMETIS-idx32-fp32.eb
 #
 # Trilinos
-# Skipped for now
 #
+  - MATIO-1.5.30-cpeGNU-26.03.eb
+  - MUMPS-5.9.1-cpeGNU-26.03-OpenMP-METIS-idx32-fp32.eb
+  - SuperLU_DIST-9.2.1-cpeGNU-26.03-OpenMP-CPU-ParMETIS-idx32-fp32.eb
+  - Trilinos-15.1.1-cpeGNU-26.03-OpenMP.eb
 #
 # UppASD
 #
