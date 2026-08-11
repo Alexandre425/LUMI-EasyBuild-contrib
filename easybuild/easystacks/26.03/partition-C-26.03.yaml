@@ -122,6 +122,14 @@ easyconfigs:
 # Testing may fail on the TDS as LAMMPS downloads packages in
 # the background. We've tried to eliminate those downloads though.
 #
+  - SZ-2.1.12.5-cpeGNU-26.03-hdf5-parallel.eb
+  - SZ3-3.3.2-cpeGNU-26.03-hdf5-parallel.eb
+  - Blosc2-2.23.1-cpeGNU-26.03.eb
+  - zfp-1.0.1-cpeGNU-26.03.eb
+  - OpenPGM-5.2.122-cpeGNU-26.03.eb
+  - libsodium-1.0.22-cpeGNU-26.03.eb
+  - ZeroMQ-4.3.5-cpeGNU-26.03.eb
+  - yaml-cpp-0.9.0-cpeGNU-26.03.eb
   - ADIOS2-2.12.1-cpeGNU-26.03-MPI-hdf5-parallel.eb
   - PLUMED-2.7.6-cpeGNU-26.03-noPython.eb
   - ScaFaCoS-1.0.4-cpeGNU-26.03-forLAMMPS.eb
@@ -252,8 +260,8 @@ easyconfigs:
 #
 # iPIC3D
 #
-#  - iPIC3D-20260211-cpeGNU-25.03.eb
-#  - iPIC3D-20260211-cpeCray-25.03.eb
+  - iPIC3D-20260211-cpeGNU-25.03.eb
+  - iPIC3D-20260211-cpeCray-25.03.eb
 #  - iPIC3D-20260211-cpeAOCC-25.03.eb
 #
 # MicroHH
@@ -264,14 +272,15 @@ easyconfigs:
 #
 # URANOS
 #
-#  - URANOS-20260515-cpeGNU-25.03.eb
-#  - URANOS-20260515-cpeCray-25.03.eb
-#  - URANOS-20260515-cpeAOCC-25.03.eb
+  - URANOS-20260515-cpeGNU-26.03.eb
+  - URANOS-20260515-cpeCray-26.03.eb
+#  - URANOS-20260515-cpeAOCC-26.03.eb
 #
 # WRF-SFIRE and WPS
+# Needs csh to build.
 #
-#  - WRF-SFIRE-W4.4-S0.1-cpeGNU-25.03.eb
-#  - WPS-v4.4-cpeGNU-25.03-WRF-SFIRE-W4.4-S0.1.eb
+#  - WRF-SFIRE-W4.4-S0.1-cpeGNU-26.03.eb
+#  - WPS-v4.4-cpeGNU-26.03-WRF-SFIRE-W4.4-S0.1.eb
 #
 ################################################################################
 #

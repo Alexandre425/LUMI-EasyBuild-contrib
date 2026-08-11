@@ -98,3 +98,6 @@ Contributions from EPICURE:
 | Package | Download | EasyBuild | Spack | Remarks |
 |:--------|:---------|:----------|:-----|:--------|
 | [MicroHH](http://www.microhh.org/) | [GitHub releases](https://github.com/microhh/microhh/releases) |  |  |  |
+| [URANOS](https://github.com/uranos-gpu/uranos-gpu/tree/main) | No releases |  |  |  |
+| [WPS](https://www.mmm.ucar.edu/weather-research-and-forecasting-model) | [GitHub releases](https://github.com/wrf-model/WPS/releases) | [EB WPS](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/w/WPS) | [Spack wps](https://packages.spack.io/package.html?name=wps) |  |
+| [WRF-SFIRE](https://wiki.openwfm.org/wiki/WRF-SFIRE) | [GitHub releases](https://github.com/openwfm/WRF-SFIRE/releases) |  |  |  |
