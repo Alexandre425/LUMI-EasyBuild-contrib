@@ -241,6 +241,12 @@ easyconfigs:
   - zfp-1.0.1-cpeGNU-26.03.eb
 # Leading to VTK which has not yet been ported to 26.03
 #
+# Wannier90
+#
+  - Wannier90-3.1.0-cpeGNU-26.03.eb
+  - Wannier90-4.0.1-cpeGNU-26.03-OpenMP-MPI.eb
+  - Wannier90-4.0.1-cpeGNU-26.03-OpenMP-noMPI.eb
+#
 # Yambo
 #
   - libxc-6.2.2-cpeGNU-26.03.eb
@@ -253,6 +259,7 @@ easyconfigs:
   - PETSc-3.23.7-cpeGNU-26.03-OpenMP-CPU-forYambo.eb
   - SLEPc-3.23.3-cpeGNU-26.03-OpenMP-CPU-forYambo.eb
   - Yambo-5.3.0-cpeGNU-26.03-SLEPc-double.eb
+#
 ################################################################################
 #
 # EPICURE contributions and updates of previous contributions
@@ -260,9 +267,9 @@ easyconfigs:
 #
 # iPIC3D
 #
-  - iPIC3D-20260211-cpeGNU-25.03.eb
-  - iPIC3D-20260211-cpeCray-25.03.eb
-#  - iPIC3D-20260211-cpeAOCC-25.03.eb
+  - iPIC3D-20260211-cpeGNU-26.03.eb
+  - iPIC3D-20260211-cpeCray-26.03.eb
+#  - iPIC3D-20260211-cpeAOCC-26.03.eb
 #
 # MicroHH
 #
@@ -279,8 +286,8 @@ easyconfigs:
 # WRF-SFIRE and WPS
 # Needs csh to build.
 #
-#  - WRF-SFIRE-W4.4-S0.1-cpeGNU-26.03.eb
-#  - WPS-v4.4-cpeGNU-26.03-WRF-SFIRE-W4.4-S0.1.eb
+  - WRF-SFIRE-W4.4-S0.1-cpeGNU-26.03.eb
+  - WPS-v4.4-cpeGNU-26.03-WRF-SFIRE-W4.4-S0.1.eb
 #
 ################################################################################
 #
@@ -299,5 +306,9 @@ easyconfigs:
 # Partly skipped for now
 #
   - DFTD4-3.7.0-cpeGNU-26.03.eb
+  - libxc-6.2.2-cpeGNU-26.03.eb
+  - Wannier90-3.1.0-cpeGNU-26.03.eb
   - mctc-lib-0.5.2-cpeGNU-26.03.eb
   - DFTD4-4.2.0-cpeGNU-26.03.eb
+  - libxc-7.1.2-cpeGNU-26.03-NoFHC.eb
+  - Wannier90-4.0.1-cpeGNU-26.03-MPI.eb
