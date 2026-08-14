@@ -2,10 +2,10 @@
 # https://github.com/cp2k/cp2k/blob/v2026.2/tools/toolchain/scripts/stage4/install_libxsmm.sh
 easyblock = 'CMakeMake'
 
-local_libxsmm_version =      '2.0.0'         # https://github.com/libxsmm/libxsmm/releases
+local_libxsmm2_version =      '2.0.0'        # https://github.com/libxsmm/libxsmm/releases
 
 name =    'libxsmm'
-version = local_libxsmm_version
+version = local_libxsmm2_version
 
 homepage = 'https://readthedocs.org/projects/libxsmm'
 

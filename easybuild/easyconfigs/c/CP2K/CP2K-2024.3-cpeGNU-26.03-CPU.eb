@@ -14,7 +14,7 @@ local_ELPA_version =         '2025.06.001'   # Moved to contrib
 local_Libint_CP2K_version  = '2.7.2'         # Not always the newest as CP2K testers use an even older version...
 local_libvori_version =      '220621'        # https://brehm-research.de/libvori.php
 local_libxc6_version =       '6.2.2'         # https://gitlab.com/libxc/libxc/-/releases
-local_libxsmm_version =      '1.17'          # https://github.com/libxsmm/libxsmm/releases
+local_libxsmm1_version =      '1.17'         # https://github.com/libxsmm/libxsmm/releases
 local_spglib_version =       '2.7.0'         # https://github.com/spglib/spglib/tags
 local_COSMA26_version =      '2.6.6'         # https://github.com/eth-cscs/COSMA/releases
 local_PLUMED2_9_version =    '2.9.5'         # https://github.com/plumed/plumed2/releases
@@ -58,14 +58,14 @@ build_deps = [
 
 deps = [
     ('cray-fftw',   EXTERNAL_MODULE),
-    ('cray-hdf5', EXTERNAL_MODULE),
+    ('cray-hdf5',   EXTERNAL_MODULE),
     ('ELPA',        local_ELPA_version,        version_suffix),
     ('COSMA',       local_COSMA26_version,     version_suffix),
     ('GSL',         local_GSL_version,         '-OpenMP'),
     ('Libint-CP2K', local_Libint_CP2K_version),
     ('libvori',     local_libvori_version),
     ('libxc',       local_libxc6_version),
-    ('libxsmm',     local_libxsmm_version),
+    ('libxsmm',     local_libxsmm1_version),
     ('spglib',      local_spglib_version),
     ('PLUMED',      local_PLUMED2_9_version,   '-noPython'),
 ]

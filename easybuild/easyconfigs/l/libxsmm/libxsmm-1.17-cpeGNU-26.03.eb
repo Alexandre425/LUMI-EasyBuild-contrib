@@ -3,10 +3,10 @@
 # Bump to the latest version and CPE version by Radim Janalik (CSCS)
 easyblock = 'ConfigureMake'
 
-local_libxsmm_version =      '1.17'          # https://github.com/libxsmm/libxsmm/releases
+local_libxsmm1_version =      '1.17'         # https://github.com/libxsmm/libxsmm/releases
 
 name =    'libxsmm'
-version = local_libxsmm_version
+version = local_libxsmm1_version
 
 homepage = 'https://readthedocs.org/projects/libxsmm'
 
