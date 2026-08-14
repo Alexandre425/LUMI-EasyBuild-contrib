@@ -61,3 +61,11 @@ tested and reliable set of LDA, GGA, and meta-GGA  functionals.
     The `-NoFHC` version is required for some VASP configurations.
 
 -   For 26.03, switched to EB6-compatible parameters.
+
+
+### Version 7.1.2 for 26.03
+
+-   The `-NoFHC` version is meant for VASP.
+
+-   The EasyConfig is a direct port of the corresponding 7.0.0 one for 25.03, but with a
+    switch to EB6-compatible parameters.

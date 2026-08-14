@@ -104,3 +104,8 @@ multithread version or the singlethread version?
 -   The EasyConfigs are based on those of previous versions.
 
 -   Switched to EB6-compatible parameters for 26.03.
+
+
+### 2026.02.002 for CPU
+
+-   The EasyConfig is a straightforward version bump of 2025.06.001 for 26.03.

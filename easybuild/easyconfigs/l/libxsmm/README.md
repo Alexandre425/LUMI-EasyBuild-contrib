@@ -29,3 +29,11 @@
 
 -   Created for PyFR as it requires a recent version of libxsmm but no release
     exists. Use the date of the commit as the version.
+
+
+### libxsmm 2.0.0 for 26.03
+
+-   The EasyConfig is a remake of the one for 1.17, now using a CMake build process.
+
+-   Options used are based on the [build recipe for CP2K 2026.2](https://github.com/cp2k/cp2k/blob/v2026.2/tools/toolchain/scripts/stage4/install_libxsmm.sh),
+    but we generate both static and shared libraries as before.

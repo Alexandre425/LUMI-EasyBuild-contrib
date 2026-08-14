@@ -90,6 +90,11 @@ easyconfigs:
   - Libint-CP2K-2.7.2-cpeGNU-26.03.eb
   - libvori-220621-cpeGNU-26.03.eb
   - libxc-6.2.2-cpeGNU-26.03.eb
+  - libxsmm-1.17-cpeGNU-26.03.eb
+  - spglib-2.7.0-cpeGNU-26.03.eb
+  - COSMA-2.6.6-cpeGNU-26.03-CPU.eb
+  - PLUMED-2.9.5-cpeGNU-26.03-noPython.eb
+  - CP2K-2024.3-cpeGNU-26.03-CPU.eb
 #
 # Cython
 #
