@@ -22,6 +22,8 @@
 
 -   Added license info for the 25.03 and later versions.
 
+-   Switched to EB6-compatible parameters for 26.03.
+
 
 ### libxsmm 29Dec22 for CPE 22.08 and later
 

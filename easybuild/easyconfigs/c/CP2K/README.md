@@ -108,7 +108,10 @@ future toolchains.
             CP2K seems to be slow upgrading that one. We build with 2.6.0 but consider reverting to 
             2.3.1 is users report issues. the ChangeLog of spglib also does not mention anything too scary.
             
--   Otherwise a rather trivial port of the corresponding 2024.2 versions for LUMI/24.03.   
+-   Otherwise a rather trivial port of the corresponding 2024.2 versions for LUMI/24.03.
+
+-   For 26.03, we switched to EB6-compatible parameters.
+
         
 ### Version 2025.2 for 25.03 GPU
 
@@ -117,3 +120,7 @@ future toolchains.
 - A few updates to the PSMP-file concerning flags.
 
 - Otherwise a trivial port of the corresponding 2024.2 version for LUMI/24.03
+
+
+
+

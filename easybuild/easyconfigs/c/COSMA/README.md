@@ -28,6 +28,8 @@
     
     Cleaned up a bit for 25.03 and added license information.
 
+-   Switched to EB6-compatible parameters for 26.03.
+
 
 ### Version 2.7.0 with CPU only or GPU support for 25.03
 

@@ -45,3 +45,7 @@ There are the python, fortran, rust, and ruby interfaces.
 
 -   Almost trivial port, but took care to add license information to the installation.
 
+
+### Version 2.7.0 for 26.03
+
+-   Trivial port of 2.6.0 for 25.03, but switched to EB6-compatible parameters.

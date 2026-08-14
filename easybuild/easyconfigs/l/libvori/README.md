@@ -23,3 +23,5 @@ gcc is the only compiler people use!
 -   Trivial port of the previous EasyConfig
 
 -   Cleaned up a bit for 25.03.
+
+-   Switched to EB6-compatible parameters for 26.03.

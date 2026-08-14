@@ -86,6 +86,10 @@ easyconfigs:
 # CP2K
 # Skipped for now
 #
+  - ELPA-2025.06.001-cpeGNU-26.03-CPU.eb
+  - Libint-CP2K-2.7.2-cpeGNU-26.03.eb
+  - libvori-220621-cpeGNU-26.03.eb
+  - libxc-6.2.2-cpeGNU-26.03.eb
 #
 # Cython
 #

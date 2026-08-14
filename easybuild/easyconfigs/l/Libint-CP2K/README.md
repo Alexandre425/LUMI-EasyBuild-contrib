@@ -6,6 +6,8 @@
 
 -   [Regular Libint GitHub](https://github.com/evaleev/libint)
 
+    -   [GitHub releases](https://github.com/evaleev/libint/releases)
+
 
 ## EasyBuild
 
