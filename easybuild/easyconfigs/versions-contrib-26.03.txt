@@ -22,6 +22,7 @@ local_CubeLib_version =      '4.8.2'         # https://www.scalasca.org/scalasca
 local_CubeWriter_version =   '4.8.2'         # https://www.scalasca.org/scalasca/software/cube-4.x/download.html
 local_Cython_version =       '3.2.9'         # https://pypi.org/project/Cython/
 
+local_DBCSR_version =        '2.10.0'        # https://github.com/cp2k/dbcsr/releases
 local_DeviceXLib_version =   '0.9.1'         # https://gitlab.com/max-centre/components/devicexlib/-/tags
 
 local_ecCodes_version =      '2.48.0'        # https://confluence.ecmwf.int/display/ECC/Releases
