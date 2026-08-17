@@ -52,8 +52,8 @@ local_common_configure_opts = ' '.join([
     '-DSPGLIB_WITH_TESTS=OFF'
 ])
 configure_opts = [
-    local_common_configure_opts + ' -DSPGLIB_SHARED_LIBS=OFF',
     local_common_configure_opts + ' -DSPGLIB_SHARED_LIBS=ON',
+    local_common_configure_opts + ' -DSPGLIB_SHARED_LIBS=OFF',
 ]
 
 sanity_check_paths = {
