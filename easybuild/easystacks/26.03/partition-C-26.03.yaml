@@ -102,10 +102,12 @@ easyconfigs:
   - libxc-7.0.0-cpeGNU-26.03-FHC.eb
   - libxsmm-2.0.0-cpeGNU-26.03.eb
   - libxs-1.0.0-cpeGNU-26.03.eb
-  - spglib-2.7.0-cpeGNU-26.03.eb
+  - DBCSR-2.10.0-cpeGNU-26.03-OpenMP-MPI.eb
+  - spglib-2.7.0-cpeGNU-26.03-OpenMP.eb
   - COSMA-2.8.4-cpeGNU-26.03-CPU-static.eb
   - COSMA-2.8.4-cpeGNU-26.03-CPU-shared.eb
   - PLUMED-2.10.1-cpeGNU-26.03-noPython.eb
+  - CP2K-2026.2-cpeGNU-26.03-CPU.eb
 #
 # Cython
 #
