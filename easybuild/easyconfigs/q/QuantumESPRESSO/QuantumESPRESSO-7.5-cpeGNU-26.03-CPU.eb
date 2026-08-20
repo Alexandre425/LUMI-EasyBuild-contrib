@@ -2,7 +2,7 @@ easyblock = 'CMakeMake'
 
 name =          'QuantumESPRESSO'
 version =       '7.5'
-versionsuffix = '-CPU'
+version_suffix = '-CPU'
 
 homepage = 'https://www.quantum-espresso.org'
 
@@ -23,8 +23,8 @@ extreme
 export OMP_STACKSIZE=1G
 """
 
-toolchain = {'name': 'cpeGNU', 'version': '25.03'}
-toolchainopts = {'usempi': True, 'openmp': True}
+toolchain = {'name': 'cpeGNU', 'version': '26.03'}
+toolchain_opts = {'usempi': True, 'openmp': True}
 
 # Details taken from https://github.com/easybuilders/easybuild-easyconfigs/blob/develop/easybuild/easyconfigs/q/QuantumESPRESSO/QuantumESPRESSO-7.5-foss-2025b.eb
 # Check hashes inside external/submodule_commit_hash_records when making file for new version
@@ -83,11 +83,11 @@ for _provider, _owner, _repo, _commit, _name in _github_repos:
         'extract_cmd': 'cd qe-%(version)s/external && tar -xvf %s',
     })
 
-builddependencies = [
+build_deps = [
     ('buildtools', '', '%(toolchain_version)s', True),
 ]
 
-dependencies = [
+deps = [
     ('cray-hdf5-parallel', EXTERNAL_MODULE),
     ('cray-fftw',          EXTERNAL_MODULE),
     ('ELPA',               '2025.06.001', '-CPU'),
@@ -104,10 +104,11 @@ local_plugins = [
     'pw2qmcpack'
 ]
 
-configopts = ' '.join([
+configure_opts = ' '.join([
     '-DQE_ENABLE_MPI=ON',
     '-DQE_ENABLE_OPENMP=ON',
     '-DQE_ENABLE_CUDA=OFF',
+    '-DQE_ENABLE_OFFLOAD=OFF',
     '-DQE_ENABLE_OPENACC=OFF',
     '-DQE_ENABLE_SCALAPACK=ON',
     '-DSCALAPACK_LIBRARIES="-lm"',
@@ -118,12 +119,13 @@ configopts = ' '.join([
     '-DQE_ENABLE_PLUGINS="%s"' % ';'.join(local_plugins),
     '-DQE_CLOCK_SECONDS=ON',
     '-DBUILD_SHARED_LIBS=OFF',
+    '-DCMAKE_POLICY_VERSION_MINIMUM=3.5',
 ])
 
 # Uncomment the next line for debug purposes.
-#maxparallel = 1
+#max_parallel = 1
 
-postinstallcmds = [
+post_install_cmds = [
     'mkdir -p %(installdir)s/share/licenses/%(name)s',
     'cd %(start_dir)s && cp License README.md %(installdir)s/share/licenses/%(name)s',
 ]
@@ -133,4 +135,4 @@ sanity_check_paths = {
     'dirs':  [''],
 }
 
-moduleclass = 'chem'
+env_mod_category = 'chem'

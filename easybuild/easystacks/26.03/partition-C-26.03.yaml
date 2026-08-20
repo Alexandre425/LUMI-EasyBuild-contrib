@@ -231,8 +231,12 @@ easyconfigs:
   - QuEST-4.2.0-cpeGNU-26.03-prec2-hybrid.eb
 #
 # QuantumESPRESSO
-# TODO
+# Will not work on the TDS as for some reason it tries to download fox again even
+# though it has been put in place from a download in sources.
 #
+  - libxc-7.0.0-cpeGNU-26.03-FHC.eb
+  - ELPA-2025.06.001-cpeGNU-26.03-CPU.eb
+  - QuantumESPRESSO-7.5-cpeGNU-26.03-CPU.eb
 #
 # R
 #
